@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Task";
+    Layout = "~/Views/Shared/_LayoutPageRO.cshtml";
+}
+
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <h6>@ViewBag.ErrorMessage</h6>
+    </div>
+}
+else
+{
+    using (Html.BeginForm("Task", "RecoveryOfficer", FormMethod.Post))
+    {
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title text-capitalized">@ViewBag.TaskTitle   </h3>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-sm-3 col-sm-offset-1">
+                    <h5>Select batch</h5>
+                </div>
+                <div class="col-sm-6">
+                    @Html.DropDownList("BatchDropDown", null, new { @class = "selectpicker" })
+                    <br /><br />
+                    <input type="submit" name="TaskButton" value="Get Student List" class="btn btn-info" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#BatchDropDown").on("change", function () {
+                var val = $("#BatchDropDown option:selected").val();
+               
+                console.log(val);
+            });
+        })
+
+    </script>
+    }
+}

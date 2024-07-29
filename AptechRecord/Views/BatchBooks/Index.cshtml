@@ -1,0 +1,78 @@
+﻿@model IEnumerable<AptechRecord.Models.BatchBook>
+
+@{
+    ViewBag.Title = "Batch Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section contentHeader{
+    <h1>
+        Batch Book
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li>Batch Book</li>
+    </ol>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">@ViewBag.Title</h3>
+            </div>
+            <div class="box-body">
+                @if (TempData["NoIdFound"] != null)
+                {
+                    <p class="alert alert-danger  text-danger" role="alert">@TempData["NoIdFound"]</p>
+                }
+                <p>
+                    @Html.ActionLink("Add New Batch Book", "Create", null, new { @class = "btn btn-danger" })
+                </p>
+                <table id="BatchBooktable" class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Batch Code
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Book.BookName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.BookStatus)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Notes)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modeItem => item.BatchCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Book.BookName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BookStatus)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Notes)
+                                </td>
+                                <td>
+                                    <a href=@Url.Action("Edit", new { id = item.Id })><i class="fa fa-edit"></i></a>
+                                    <a href=@Url.Action("Delete", new { id = item.Id })><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>setTimeout(function () { $('.alert.alert-danger.text-danger').fadeOut(); }, 3000)</script>

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<AptechRecord.Models.usp_select_two_attendance_Result>
+
+@{
+    ViewBag.Title = "Two Days Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section contentHeader{
+    <h1>
+        Last Two Days Attendance Report
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href=@Url.Action("Index", "Attendances", new {id = @ViewBag.Timing})><i class="fa fa-list"></i>Attendance</a></li>
+        <li>Last Two Days Attendance</li>
+    </ol>
+}
+@if (ViewBag.ErrorMessage != null)
+{
+    <p class="danger alert-danger text-danger">@ViewBag.ErrorMessage</p>
+}
+else
+{
+
+    <table id="TodaysAttendancetable" class="table">
+        <thead>
+            <tr>
+                <th>
+                    Student Id
+                </th>
+                <th>
+                    Student Name
+                </th>
+                <th>
+                    Attendance Date
+                </th>
+                <th>
+                    Attendance Status
+                </th>
+                <th>
+                    Notes
+                </th>
+                <th>
+                    Username
+                </th>
+                <th>
+                    Batch Code
+                </th>
+                <th>
+                    Slot
+                </th>
+                <th>
+                    Days
+                </th>
+                <th>
+                    Contact No.
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Address
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AttendanceDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AttenddanceStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ANotes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SBBatchCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Slot)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BatchDays)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contact1) / @Html.DisplayFor(modelItem => item.Contact2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

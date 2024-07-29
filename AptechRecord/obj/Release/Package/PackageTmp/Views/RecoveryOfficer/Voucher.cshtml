@@ -1,0 +1,148 @@
+﻿@model List<AptechRecord.Models.usp_select_voucher_student_Result>
+@using AptechRecord.Models;
+
+@{
+    ViewBag.Title = "Voucher";
+    Layout = "~/Views/Shared/_LayoutPageRO.cshtml";
+}@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <h6>@ViewBag.ErrorMessage</h6>
+    </div>
+}
+else
+{
+    using (Html.BeginForm("Voucher", "RecoveryOfficer", new { batch = ViewBag.BatchName }, FormMethod.Post))
+    {
+        <div class="box box-info">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <h3>Batch Code: @ViewBag.BatchName</h3>
+                        <p>Vouchers for the month of: @DateTime.Now.AddHours(9.00000).ToString("MMMM")</p>
+                        <p>Total vouchers: @ViewBag.CountStudent</p>
+                        <p>Distributed on:  @DateTime.Now.AddHours(9.00000).ToString("dddd, dd MMM yyy  HH: mm: ss")</p>
+                        <p id="AId" class="hidden">@ViewBag.Id</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div id="StudentVoucherTable" class="table">
+                            <div class="div-header">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Student Id
+                                    </div>
+                                    <div class="col-sm-3">
+                                        Student Name
+                                    </div>
+                                    <div class="col-sm-3">
+                                        Voucher Status
+                                    </div>
+                                    <div class="col-sm-4">Notes</div>
+                                </div>
+                            </div>
+                            <div class="div-body">
+                                @if (Model != null && Model.Count > 0)
+                                {
+                                    int count = 0;
+
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                @Html.TextBoxFor(modelItem => modelItem[count].StudentId, new { @class = "", style = "border: none;", @readonly = "readonly" })
+                                            </div>
+                                            <div class="col-sm-3">
+                                                @Html.DisplayFor(modelItem => item.StudentName)
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>
+                                                    @Html.RadioButtonFor(modelItem => modelItem[count].VoucherStatus, "Received", new { @class = "" })
+                                                    Received
+                                                </label>
+                                                <label>
+                                                    @Html.RadioButtonFor(modelItem => modelItem[count].VoucherStatus, "Unreceive", new { @class = "" })
+                                                    Unreceive
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                @{ var a = "Notes" + count;  }
+                                                @Html.TextAreaFor(modelItem => modelItem[count].Notes, new { @class = "form-control", id = @a })
+                                            </div>
+                                        </div>
+                                                 count++;
+                                    }
+                                }
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <input type="submit" id="MarkVoucher" name="MarkVoucher" value="Submit Record" class="btn btn-block btn-success" />
+                                    @Html.ActionLink("Cancel", "Dashboard", "RecoveryOfficer", null, new { @class = "btn btn-block btn-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+<div class="modal fade" id="modalDefault" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"> Students Attendance</h3>
+            </div>
+            <div class="modal-body">
+                <p id="message"></p>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" id="CloseModal" class="btn btn-default" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@if (ViewBag.Message != null)
+{
+    if (ViewBag.Message == 1)
+    {
+        <script type="text/javascript">
+            var ts = '@(ViewBag.TS)';
+            var tr = '@(ViewBag.TR)';
+            var tu = '@(ViewBag.TU)';
+            $("#modalDefault").modal({
+                backdrop: false
+            });
+            $(".modal-header").css("background-color", "#0aae63");
+            var batch = $('div.row div h3').text();
+            $("#message").html("<img src=\"/images/happy.png\"/><h3>Voucher entry successfully marked </h3>" +
+                "<h5>Summary:</h5>" +
+                "<ul><li>Total Students : " + ts + "</li><li>Total Received : " + tr + "</li><li>Total Unreceive : " + tu + "</li></ul>"
+                );
+
+            $('#CloseModal').click(function () {
+                window.location.href = "/RecoveryOfficer/Task?task=voucher"
+            });
+
+        </script>
+    }
+    else if (ViewBag.Message == -1)
+    {
+        <script type="text/javascript">
+            $("#modalDefault").modal({
+                backdrop: false
+            });
+            $(".modal-header").css("background-color", "#0aae63");
+            var batch = $('div.row div h3').text();
+            $("#message").html("<img src=\"/images/sad.png\"/> <h3>Voucher entry can't be done again for same batch.</h3>");
+
+            $('#CloseModal').click(function () {
+                window.location.href = "/RecoveryOfficer/Task?task=voucher"
+            });
+        </script>
+    }
+}

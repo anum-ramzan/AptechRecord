@@ -1,0 +1,89 @@
+﻿@model IEnumerable<AptechRecord.Models.usp_select_unmarked_attendance_Result>
+
+@{
+    ViewBag.Title = "Past Attendance";
+    Layout = "~/Views/Shared/_LayoutPageRO.cshtml";
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p class="danger alert-danger text-danger">@ViewBag.ErrorMessage</p>
+}
+else
+{
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">@ViewBag.Title</h3>
+                </div>
+                <div class="box-body">
+                    @using (Html.BeginForm("PastAttendance", "RecoveryOfficer", FormMethod.Post, new { id = "PastAttendanceForm" }))
+                    {
+                        <div class="form-group">
+                            @Html.Label("Select Date", "Select Date", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBox("CustomDate", null, new { @class = "form-control" })
+                                <br />
+                                @Html.TextBox("Get Record", "Get Record", new { @class = "btn btn-info", type = "submit" })
+
+                                @if (ViewBag.Mesg != null)
+                                {
+                                    <p class="text-danger"> @ViewBag.Mesg</p>
+                                }
+
+                            </div>
+                        </div>
+                    }
+                </div>
+                <hr />
+                <div class="box-body">
+                    <table id="PastAttendancetable" class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BatchCode)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Slot)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BatchDays)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BatchCode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Slot)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BatchDays)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @ViewBag.GetDate
+                                    </td>
+                                    <td>UnMarked</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+}

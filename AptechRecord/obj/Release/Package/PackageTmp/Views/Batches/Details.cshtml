@@ -1,0 +1,67 @@
+﻿@model AptechRecord.Models.Batch
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Batch</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BatchStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BatchStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BatchStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BatchStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Day.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Day.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeSlot.Slot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeSlot.Slot)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BatchCode }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

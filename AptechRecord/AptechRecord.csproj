@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F48EBCD2-B5D3-4A9D-8F6B-B3E427F9A8F4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AptechRecord</RootNamespace>
+    <AssemblyName>AptechRecord</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNet.Highcharts">
+      <HintPath>..\packages\DotNet.Highcharts.4.0\lib\DotNet.Highcharts.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\admin-style.css" />
+    <Content Include="Content\AdminLTE.min.css" />
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-select.min.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\buttons.dataTables.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\hamburgers.min.css" />
+    <Content Include="Content\jquery.dataTables.min.css" />
+    <Content Include="Content\login-main.css" />
+    <Content Include="Content\login-util.css" />
+    <Content Include="Content\select2.min.css" />
+    <Content Include="Content\site.css" />
+    <Content Include="Content\_all-skins.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\montserrat\OFL.txt" />
+    <Content Include="fonts\ptsans\OFL.txt" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="images\angry.png" />
+    <Content Include="images\batch.png" />
+    <Content Include="images\course.png" />
+    <Content Include="images\cry_sad.png" />
+    <Content Include="images\happy.png" />
+    <Content Include="images\icons\favicon.ico" />
+    <Content Include="images\img-01.png" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="images\professor.png" />
+    <Content Include="images\sad.png" />
+    <Content Include="images\sort_asc.png" />
+    <Content Include="images\sort_both.png" />
+    <Content Include="images\student.png" />
+    <Content Include="Models\AptechSFCRecordModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AptechSFCRecordModel.edmx</DependentUpon>
+      <LastGenOutput>AptechSFCRecordModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AptechSFCRecordModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AptechSFCRecordModel.edmx</DependentUpon>
+      <LastGenOutput>AptechSFCRecordModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\admin-js.js" />
+    <Content Include="Scripts\adminlte.min.js" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="Scripts\bootstrap-select.min.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\buttons.flash.min.js" />
+    <Content Include="Scripts\buttons.html5.min.js" />
+    <Content Include="Scripts\buttons.print.min.js" />
+    <Content Include="Scripts\custom-script.js" />
+    <Content Include="Scripts\dataTables.buttons.min.js" />
+    <Content Include="Scripts\dataTables.responsive.js" />
+    <Content Include="Scripts\dataTables.rowsGroup.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\adapters\standalone-framework.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\adapters\standalone-framework.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-3d.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-3d.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-all.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-more.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-more.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\canvas-tools.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\canvas-tools.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\data.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\data.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\drilldown.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\drilldown.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\exporting.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\exporting.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\funnel.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\funnel.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\heatmap.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\heatmap.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\no-data-to-display.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\no-data-to-display.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\solid-gauge.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\solid-gauge.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\dark-blue.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\dark-green.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\dark-unica.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\gray.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\grid-light.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\grid.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\sand-signika.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\skies.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.sparkline.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\jszip.min.js" />
+    <Content Include="Scripts\login-main.js" />
+    <Content Include="Scripts\pdfmake.min.js" />
+    <Content Include="Content\responsive.dataTables.min.css" />
+    <Content Include="Content\select2.css" />
+    <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\tilt.jquery.min.js" />
+    <Content Include="Scripts\vfs_fonts.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdmissionController.cs" />
+    <Compile Include="Controllers\AttendancesController.cs" />
+    <Compile Include="Controllers\BatchBooksController.cs" />
+    <Compile Include="Controllers\BatchesController.cs" />
+    <Compile Include="Controllers\BatchTeacherDetailsController.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\CoordinatorController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\CourseDetailsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\RecoveryOfficerController.cs" />
+    <Compile Include="Controllers\SemestersController.cs" />
+    <Compile Include="Controllers\SlotAssignsController.cs" />
+    <Compile Include="Controllers\StudentBatchesController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\TimeSlotsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\VouchersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AptechSFCRecordModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AptechSFCRecordModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AptechSFCRecordModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AptechSFCRecordModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AptechSFCRecordModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Attendance.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Batch.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BatchBook.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BatchTeacherDetail.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Book.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cours.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CourseDetail.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomChangesInModel.cs" />
+    <Compile Include="Models\Day.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ErrorLog.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginHistory.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MethodsReuseability.cs" />
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Semester.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SlotAssign.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentBatch.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentBatchTransfer.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TimeSlot.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_login_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_recovery_batch_list_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_report_student_report_between_dates_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_report_student_report_for_user_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_report_student_report_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_absentees_batch_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_absentees_followup_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_absent_student_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_attendance_barchart_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_attendance_student_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_bar_chart_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_consolidated_attendance_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_customized_attendance_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_date_wise_attendance_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_date_wise_batch_detail_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_dropList_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_faculty_wise_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_MWFGrouping_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_session_wise_attendance_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_student_attendance_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_student_id_for_bt_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_student_id_for_do_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_student_wise_attendance_detail_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_student_wise_attendance_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_timing_wise_attendance_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_todays_attendance_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_todays_attendance_total_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_TTSGrouping_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_two_attendance_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_undistributed_batch_list_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_unmarked_attendance_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_unmarked_batch_list_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_unreceived_batch_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_unreceived_student_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_voucher_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_voucher_student_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_select_zero_attendance_Result.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Voucher.cs">
+      <DependentUpon>AptechSFCRecordModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Views\Admin\Dashboard.cshtml" />
+    <Content Include="Views\Shared\_LayoutPageRO.cshtml" />
+    <Content Include="fonts\ptsans\PT_Sans-Web-Bold.ttf" />
+    <Content Include="fonts\ptsans\PT_Sans-Web-BoldItalic.ttf" />
+    <Content Include="fonts\ptsans\PT_Sans-Web-Italic.ttf" />
+    <Content Include="fonts\ptsans\PT_Sans-Web-Regular.ttf" />
+    <Content Include="Views\RecoveryOfficer\Dashboard.cshtml" />
+    <Content Include="Views\RecoveryOfficer\Task.cshtml" />
+    <Content Include="Views\RecoveryOfficer\Attendance.cshtml" />
+    <Content Include="Views\Course\AddCourse.cshtml" />
+    <Content Include="Views\Course\Delete.cshtml" />
+    <Content Include="Views\Course\EditCourse.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Attendances\Index.cshtml" />
+    <Content Include="Views\CourseDetails\AddCourseDetails.cshtml" />
+    <Content Include="Views\CourseDetails\DeleteCourse.cshtml" />
+    <Content Include="Views\CourseDetails\EditCourseDetails.cshtml" />
+    <Content Include="Views\CourseDetails\Index.cshtml" />
+    <Content Include="Views\Books\AddBook.cshtml" />
+    <Content Include="Views\Books\DeleteBook.cshtml" />
+    <Content Include="Views\Books\EditBook.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\TimeSlots\AddTime.cshtml" />
+    <Content Include="Views\TimeSlots\Delete.cshtml" />
+    <Content Include="Views\TimeSlots\EditTiming.cshtml" />
+    <Content Include="Views\TimeSlots\Index.cshtml" />
+    <EntityDeploy Include="Models\AptechSFCRecordModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AptechSFCRecordModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AptechSFCRecordModel.edmx.diagram">
+      <DependentUpon>AptechSFCRecordModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\AptechRecord.pubxml" />
+    <Content Include="Views\Employees\AddFaculty.cshtml" />
+    <Content Include="Views\Employees\DeleteFaculty.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\EditFaculty.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Students\AddStudent.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Batches\Create.cshtml" />
+    <Content Include="Views\Batches\Delete.cshtml" />
+    <Content Include="Views\Batches\Details.cshtml" />
+    <Content Include="Views\Batches\EditBatch.cshtml" />
+    <Content Include="Views\Batches\Index.cshtml" />
+    <Content Include="Views\BatchBooks\Create.cshtml" />
+    <Content Include="Views\BatchBooks\Delete.cshtml" />
+    <Content Include="Views\BatchBooks\Details.cshtml" />
+    <Content Include="Views\BatchBooks\Edit.cshtml" />
+    <Content Include="Views\BatchBooks\Index.cshtml" />
+    <Content Include="Views\BatchTeacherDetails\ChangeTeacher.cshtml" />
+    <Content Include="Views\BatchTeacherDetails\Edit.cshtml" />
+    <Content Include="Views\BatchTeacherDetails\Index.cshtml" />
+    <Content Include="Views\Vouchers\Create.cshtml" />
+    <Content Include="Views\Vouchers\Delete.cshtml" />
+    <Content Include="Views\Vouchers\Details.cshtml" />
+    <Content Include="Views\Vouchers\Edit.cshtml" />
+    <Content Include="Views\Vouchers\Index.cshtml" />
+    <Content Include="Views\Users\AddUser.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\EditUser.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\StudentBatches\AssignBatch.cshtml" />
+    <Content Include="Views\StudentBatches\Delete.cshtml" />
+    <Content Include="Views\StudentBatches\Details.cshtml" />
+    <Content Include="Views\StudentBatches\ChangeBatch.cshtml" />
+    <Content Include="Views\StudentBatches\Index.cshtml" />
+    <Content Include="Views\Attendances\SlotWiseAttendance.cshtml" />
+    <Content Include="Views\Semesters\AddSemester.cshtml" />
+    <Content Include="Views\Semesters\DeleteSemester.cshtml" />
+    <Content Include="Views\Semesters\Details.cshtml" />
+    <Content Include="Views\Semesters\EditSemester.cshtml" />
+    <Content Include="Views\Semesters\Index.cshtml" />
+    <Content Include="Views\Management\Index.cshtml" />
+    <Content Include="Views\Coordinator\Index.cshtml" />
+    <Content Include="Views\Admission\Index.cshtml" />
+    <Content Include="Views\RecoveryOfficer\AbsenteesAttendance.cshtml" />
+    <Content Include="Views\RecoveryOfficer\PasswordChange.cshtml" />
+    <Content Include="Views\Attendances\GetSlotBatches.cshtml" />
+    <Content Include="Views\Attendances\StudentAttendance.cshtml" />
+    <Content Include="Views\Attendances\TodaysReport.cshtml" />
+    <None Include="Properties\PublishProfiles\DesktopSetup.pubxml" />
+    <Content Include="Views\Attendances\TwoDaysReport.cshtml" />
+    <Content Include="Views\SlotAssigns\Create.cshtml" />
+    <Content Include="Views\SlotAssigns\Delete.cshtml" />
+    <Content Include="Views\SlotAssigns\Details.cshtml" />
+    <Content Include="Views\SlotAssigns\Edit.cshtml" />
+    <Content Include="Views\SlotAssigns\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\HomeDesktopSetup.pubxml" />
+    <Content Include="Views\Attendances\UnMarkBatches.cshtml" />
+    <Content Include="Views\Admin\PasswordChange.cshtml" />
+    <Content Include="Views\Accounts\Maintenance.cshtml" />
+    <Content Include="Views\Management\PasswordChange.cshtml" />
+    <Content Include="Views\RecoveryOfficer\Voucher.cshtml" />
+    <Content Include="Views\Vouchers\VoucherReport.cshtml" />
+    <Content Include="Views\Attendances\Customized.cshtml" />
+    <Content Include="Views\RecoveryOfficer\UnreceivedVoucher.cshtml" />
+    <Content Include="Views\RecoveryOfficer\AbsenteesFollowUp.cshtml" />
+    <Content Include="Views\Attendances\FacultyWiseAttendance.cshtml" />
+    <Content Include="Views\Attendances\ConsolidatedAttendance.cshtml" />
+    <Content Include="Views\Attendances\DateWiseAttendance.cshtml" />
+    <Content Include="Views\Attendances\ViewBatchAttendance.cshtml" />
+    <Content Include="Views\Attendances\StudentWiseAttendance.cshtml" />
+    <Content Include="Views\Attendances\ViewStudentAttendance.cshtml" />
+    <Content Include="Views\Attendances\TimingWiseAttendance.cshtml" />
+    <Content Include="Views\Attendances\ZeroOrNoAttendance.cshtml" />
+    <Content Include="Views\Attendances\LowAttendance.cshtml" />
+    <Content Include="Views\Attendances\SessionWiseAttendance.cshtml" />
+    <Content Include="Views\RecoveryOfficer\PastAttendance.cshtml" />
+    <Content Include="Views\RecoveryOfficer\_PastAttendance.cshtml" />
+    <Content Include="Views\RecoveryOfficer\DropOutList.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!--<Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />-->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7881</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6976/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

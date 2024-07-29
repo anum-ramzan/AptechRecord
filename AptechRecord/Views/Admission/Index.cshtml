@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section contentHeader{
+    <h1>
+        Dashbaord
+        <small>Welcome</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admission")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+    </ol>
+}
+
+
+<div class="row">
+    <!-- Course List box-->
+    <div class="col-md-3 col-xs-3">
+        <!-- small box -->
+        <div class="small-box bg-black">
+            <div class="inner">
+                <h3>@ViewBag.CoursesCount</h3>
+
+                <p>Courses</p>
+            </div>
+            <div class="icon">
+                <img src="~/images/course.png" />
+            </div>
+        </div>
+    </div>
+    <!-- Course List box-->
+    <div class="col-md-3 col-xs-3">
+        <!-- small box -->
+        <div class="small-box bg-black">
+            <div class="inner">
+                <h3>@ViewBag.BatchesCount</h3>
+
+                <p>Batches</p>
+            </div>
+            <div class="icon">
+                <img src="~/images/batch.png" />
+            </div>
+        </div>
+    </div>
+    <!-- Course List box-->
+    <div class="col-md-3 col-xs-3">
+        <!-- small box -->
+        <div class="small-box bg-black">
+            <div class="inner">
+                <h3>@ViewBag.StudentsCount</h3>
+
+                <p>Students</p>
+            </div>
+            <div class="icon">
+                <img src="~/images/student.png" />
+            </div>
+        </div>
+    </div>
+    <!-- Teachers List box-->
+    <div class="col-md-3 col-xs-3">
+        <!-- small box -->
+        <div class="small-box bg-black">
+            <div class="inner">
+                <h3>@ViewBag.FacultiesCount</h3>
+
+                <p>Faculties</p>
+            </div>
+            <div class="icon">
+                <img src="~/images/professor.png" />
+            </div>
+        </div>
+    </div>
+</div>

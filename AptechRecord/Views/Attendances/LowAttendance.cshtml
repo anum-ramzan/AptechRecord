@@ -1,0 +1,85 @@
+﻿@model IEnumerable<AptechRecord.Models.usp_select_zero_attendance_Result>
+
+@{
+    ViewBag.Title = "Student with Low Attendance through " + ViewBag.DayName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section contentHeader{
+    <h1>
+        Attendance
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href=@Url.Action("Index", "Attendances")><i class="fa fa-list"></i>Attendance</a></li>
+        <li>Student with Low Attendance through @ViewBag.DayName</li>
+    </ol>
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Student with Low Attendance through @ViewBag.DayName</h3>
+            </div>
+            <div class="box-body">
+                <table id="LowAttendancetable" class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Attendance)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.BatchCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Slot)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmployeeName)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Attendance)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StudentId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StudentName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BatchCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Slot)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.dataTables_empty').html('<b>No Attendance found for today<b>')
+    });
+</script>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AptechRecord.Models.Batch>
+
+@{
+    ViewBag.Title = "GetSlotBatches";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section contentHeader{
+    <h1>
+        @ViewBag.Timing slot batches
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href=@Url.Action("SlotWiseAttendance", "Attendances")><i class="fa fa-list"></i>Slots</a></li>
+        <li>Slot Wise Attendance</li>
+    </ol>
+}
+<table id="Attendancetable" class="">
+    <thead>
+        <tr>
+            <th>
+                Batch Code
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BatchStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BatchStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeSlot.Slot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BatchCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BatchStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BatchStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Day.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeSlot.Slot)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.ActionLink("Student Attendance", "StudentAttendance", new { batch = item.BatchCode })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

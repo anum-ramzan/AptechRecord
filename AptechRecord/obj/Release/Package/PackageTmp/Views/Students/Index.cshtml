@@ -1,0 +1,94 @@
+﻿@model IEnumerable<AptechRecord.Models.Student>
+
+@{
+    ViewBag.Title = "Students";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section contentHeader{
+    <h1>
+        Student
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li>Student</li>
+    </ol>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">@ViewBag.Title</h3>
+            </div>
+            <div class="box-body">
+                @if (TempData["NoIdFound"] != null)
+                {
+                    <p class="alert alert-danger text-danger" role="alert">@TempData["NoIdFound"]</p>
+                }
+                <p>
+                    @Html.ActionLink("Add Student", "AddStudent", null, new { @class = "btn btn-danger" })
+                </p>
+                <table id="Studenttable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Student Id</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentName)
+                            </th>
+                            <th>
+                                Contact
+                            </th>
+                            <th>
+                                Course  Type
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Notes)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StudentId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StudentName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Contact1)                                
+                                    @Html.DisplayFor(modelItem => item.Contact2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CourseDetail.CourseDetailName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Notes)
+                                </td>
+                                <td>
+                                    <a href=@Url.Action("Edit", new { id = item.StudentId })><i class="fa fa-edit"></i></a>
+                                    <a href=@Url.Action("Details", new { id = item.StudentId })><i class="fa fa-id-card"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>setTimeout(function () { $('.alert.alert-danger.text-danger').fadeOut(); }, 3000)</script>

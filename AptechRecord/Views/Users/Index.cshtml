@@ -1,0 +1,73 @@
+﻿@model IEnumerable<AptechRecord.Models.User>
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section contentHeader{
+    <h1>
+        Users
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li>Users</li>
+    </ol>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">@ViewBag.Title</h3>
+            </div>
+            <div class="box-body">
+                <p>
+                    @Html.ActionLink("Add User", "AddUser", null, new {@class = "btn btn-danger"})
+                </p>
+                <table id="Userstable" class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Username)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Userstatus)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserCreatedOn)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Role.Rolename)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Userstatus)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserCreatedOn)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Role.Rolename)
+                                </td>
+                                <td>
+                                    <a href=@Url.Action("EditUser", new { id = item.Id })><i class="fa fa-edit"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

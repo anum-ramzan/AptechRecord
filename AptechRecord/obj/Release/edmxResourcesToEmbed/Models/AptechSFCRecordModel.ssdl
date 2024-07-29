@@ -1,0 +1,1041 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AptechSFCRecordModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="AttendanceDate" Type="date" />
+    <Property Name="AttenddanceStatus" Type="varchar" MaxLength="50" />
+    <Property Name="AttendanceMarkAt" Type="datetime" />
+    <Property Name="AttendanceMarkBy" Type="int" />
+    <Property Name="Notes" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Batch">
+    <Key>
+      <PropertyRef Name="BatchCode" />
+    </Key>
+    <Property Name="BatchCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BatchTiming" Type="int" />
+    <Property Name="BatchStartDate" Type="date" />
+    <Property Name="BatchStatus" Type="varchar" MaxLength="50" />
+    <Property Name="BatchBy" Type="int" />
+    <Property Name="Notes" Type="varchar" MaxLength="500" />
+    <Property Name="BatchDays" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="BatchBook">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="BatchCode" Type="varchar" MaxLength="50" />
+    <Property Name="BatchBook" Type="int" />
+    <Property Name="AssignDate" Type="datetime" />
+    <Property Name="BookStatus" Type="varchar" MaxLength="50" />
+    <Property Name="ChangesDoneBy" Type="int" />
+    <Property Name="Notes" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="BatchTeacherDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="BatchCode" Type="varchar" MaxLength="50" />
+    <Property Name="TeacherCode" Type="int" />
+    <Property Name="AssignDate" Type="datetime" />
+    <Property Name="TeacherStatus" Type="varchar" MaxLength="50" />
+    <Property Name="ChangesDoneBy" Type="int" />
+    <Property Name="Notes" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="BookName" Type="varchar" MaxLength="100" />
+    <Property Name="SemesterId" Type="int" />
+  </EntityType>
+  <EntityType Name="CourseDetail">
+    <Key>
+      <PropertyRef Name="CourseDetail" />
+    </Key>
+    <Property Name="CourseDetail" Type="int" Nullable="false" />
+    <Property Name="CourseDetailName" Type="varchar" MaxLength="100" />
+    <Property Name="CourseDetailTree" Type="int" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CourseName" Type="varchar" MaxLength="70" />
+    <Property Name="CourseAbbreviation" Type="varchar" MaxLength="15" />
+    <Property Name="CourseStatus" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Days">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="100" />
+    <Property Name="Designation" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+    <Property Name="EmployeeStatus" Type="varchar" MaxLength="50" />
+    <Property Name="Notes" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="ErrorId" />
+    </Key>
+    <Property Name="ErrorId" Type="int" Nullable="false" />
+    <Property Name="ErrorMessage" Type="varchar" MaxLength="1000" />
+    <Property Name="ErrorDetail" Type="varchar" MaxLength="8000" />
+    <Property Name="ErrorTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LoginHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="LoginDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Rolename" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Semester">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="SemesterName" Type="varchar" MaxLength="100" />
+    <Property Name="CourseId" Type="int" />
+    <Property Name="SemesterSession" Type="int" />
+  </EntityType>
+  <EntityType Name="SlotAssign">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="SlotId" Type="int" />
+    <Property Name="SlotDays" Type="varchar" MaxLength="3" />
+    <Property Name="AssignDate" Type="date" />
+    <Property Name="TaskStatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StudentBatch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="BatchCode" Type="varchar" MaxLength="50" />
+    <Property Name="AssignDate" Type="datetime" />
+    <Property Name="BatchStatus" Type="varchar" MaxLength="50" />
+    <Property Name="ChangesDoneBy" Type="int" />
+    <Property Name="Notes" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="StudentBatchTransfer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="BatchCode" Type="varchar" MaxLength="50" />
+    <Property Name="AssignDate" Type="date" />
+    <Property Name="TransferDate" Type="date" />
+    <Property Name="ChangesDoneBy" Type="int" />
+    <Property Name="Notes" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="StudentName" Type="varchar" MaxLength="100" />
+    <Property Name="FatherName" Type="varchar" MaxLength="100" />
+    <Property Name="NICNumber" Type="varchar" MaxLength="30" />
+    <Property Name="StudentCourse" Type="int" />
+    <Property Name="Contact1" Type="varchar" MaxLength="50" />
+    <Property Name="Contact2" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Address" Type="varchar" MaxLength="150" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+    <Property Name="ChangesDoneBy" Type="int" />
+    <Property Name="Notes" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="TimeSlot">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Slot" Type="varchar" MaxLength="10" />
+    <Property Name="RamazanSlot" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="UserRole" Type="int" />
+    <Property Name="Userstatus" Type="varchar" MaxLength="20" />
+    <Property Name="UserCreatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Voucher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="VoucherDate" Type="date" />
+    <Property Name="VoucherStatus" Type="varchar" MaxLength="50" />
+    <Property Name="VoucherDistributedAt" Type="datetime" />
+    <Property Name="VoucherDistributedBy" Type="int" />
+    <Property Name="Notes" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK__Batch__BatchDays__2E1BDC42">
+    <End Role="Days" Type="Self.Days" Multiplicity="0..1" />
+    <End Role="Batch" Type="Self.Batch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Days">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Batch">
+        <PropertyRef Name="BatchDays" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Batch__BatchDays__3587F3E0">
+    <End Role="Days" Type="Self.Days" Multiplicity="0..1" />
+    <End Role="Batch" Type="Self.Batch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Days">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Batch">
+        <PropertyRef Name="BatchDays" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CourseDet__Cours__37A5467C">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="0..1" />
+    <End Role="CourseDetail" Type="Self.CourseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseDetail">
+        <PropertyRef Name="CourseDetailTree" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CourseDet__Cours__3F115E1A">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="0..1" />
+    <End Role="CourseDetail" Type="Self.CourseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseDetail">
+        <PropertyRef Name="CourseDetailTree" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SlotAssig__SlotD__41EDCAC5">
+    <End Role="Days" Type="Self.Days" Multiplicity="0..1" />
+    <End Role="SlotAssign" Type="Self.SlotAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Days">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SlotAssign">
+        <PropertyRef Name="SlotDays" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SlotAssig__SlotD__440B1D61">
+    <End Role="Days" Type="Self.Days" Multiplicity="0..1" />
+    <End Role="SlotAssign" Type="Self.SlotAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Days">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SlotAssign">
+        <PropertyRef Name="SlotDays" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SlotAssig__SlotI__42E1EEFE">
+    <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="0..1" />
+    <End Role="SlotAssign" Type="Self.SlotAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeSlot">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SlotAssign">
+        <PropertyRef Name="SlotId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SlotAssig__SlotI__44FF419A">
+    <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="0..1" />
+    <End Role="SlotAssign" Type="Self.SlotAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeSlot">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SlotAssign">
+        <PropertyRef Name="SlotId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SlotAssig__UserI__43D61337">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="SlotAssign" Type="Self.SlotAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SlotAssign">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SlotAssig__UserI__45F365D3">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="SlotAssign" Type="Self.SlotAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SlotAssign">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_attendance_logged_user">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="AttendanceMarkBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_attendance_student_id">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_batch_book_id">
+    <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
+    <End Role="BatchBook" Type="Self.BatchBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BatchBook">
+        <PropertyRef Name="BatchBook" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_batch_book_logged_user">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="BatchBook" Type="Self.BatchBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BatchBook">
+        <PropertyRef Name="ChangesDoneBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_batch_code_id">
+    <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+    <End Role="BatchBook" Type="Self.BatchBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batch">
+        <PropertyRef Name="BatchCode" />
+      </Principal>
+      <Dependent Role="BatchBook">
+        <PropertyRef Name="BatchCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_batch_logged_user">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Batch" Type="Self.Batch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Batch">
+        <PropertyRef Name="BatchBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_batch_teacher_code">
+    <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+    <End Role="BatchTeacherDetails" Type="Self.BatchTeacherDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batch">
+        <PropertyRef Name="BatchCode" />
+      </Principal>
+      <Dependent Role="BatchTeacherDetails">
+        <PropertyRef Name="BatchCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_batch_timing">
+    <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="0..1" />
+    <End Role="Batch" Type="Self.Batch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeSlot">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Batch">
+        <PropertyRef Name="BatchTiming" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_course_semester">
+    <End Role="CourseDetail" Type="Self.CourseDetail" Multiplicity="0..1" />
+    <End Role="Semester" Type="Self.Semester" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseDetail">
+        <PropertyRef Name="CourseDetail" />
+      </Principal>
+      <Dependent Role="Semester">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_login_user">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="LoginHistory" Type="Self.LoginHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LoginHistory">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sbt_batchCode">
+    <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+    <End Role="StudentBatchTransfer" Type="Self.StudentBatchTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batch">
+        <PropertyRef Name="BatchCode" />
+      </Principal>
+      <Dependent Role="StudentBatchTransfer">
+        <PropertyRef Name="BatchCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sbt_studentid">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="StudentBatchTransfer" Type="Self.StudentBatchTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="StudentBatchTransfer">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sbt_userid">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="StudentBatchTransfer" Type="Self.StudentBatchTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentBatchTransfer">
+        <PropertyRef Name="ChangesDoneBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_semester_book">
+    <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Semester">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="SemesterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_student_course">
+    <End Role="CourseDetail" Type="Self.CourseDetail" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseDetail">
+        <PropertyRef Name="CourseDetail" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="StudentCourse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_studentbatch_arstatus">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="StudentBatch" Type="Self.StudentBatch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentBatch">
+        <PropertyRef Name="ChangesDoneBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_studentbatch_batch">
+    <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+    <End Role="StudentBatch" Type="Self.StudentBatch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batch">
+        <PropertyRef Name="BatchCode" />
+      </Principal>
+      <Dependent Role="StudentBatch">
+        <PropertyRef Name="BatchCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_studentbatch_stdid">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="StudentBatch" Type="Self.StudentBatch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="StudentBatch">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_studentbatch_userid">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="StudentBatch" Type="Self.StudentBatch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentBatch">
+        <PropertyRef Name="ChangesDoneBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_students_arstatus_user">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="ChangesDoneBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_students_logged_user">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="ChangesDoneBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_teacher_code_id">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="BatchTeacherDetails" Type="Self.BatchTeacherDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BatchTeacherDetails">
+        <PropertyRef Name="TeacherCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_teacher_logged_user">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="BatchTeacherDetails" Type="Self.BatchTeacherDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BatchTeacherDetails">
+        <PropertyRef Name="ChangesDoneBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_user_role">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_voucher_logged_user">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="VoucherDistributedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_voucher_student_id">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="auto_sa_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_auto_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_auto_errorid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_auto_loginhistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_auto_userid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_auto_voucher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_check_student_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="studentid" Type="int" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_check_student_voucher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="studentid" Type="int" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_error_log" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="message" Type="varchar" Mode="In" />
+    <Parameter Name="detail" Type="varchar" Mode="In" />
+    <Parameter Name="time" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_insert_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="sid" Type="int" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+    <Parameter Name="status" Type="varchar" Mode="In" />
+    <Parameter Name="markat" Type="datetime" Mode="In" />
+    <Parameter Name="markby" Type="int" Mode="In" />
+    <Parameter Name="notes" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_insert_voucher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="sid" Type="int" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+    <Parameter Name="status" Type="varchar" Mode="In" />
+    <Parameter Name="markat" Type="datetime" Mode="In" />
+    <Parameter Name="markby" Type="int" Mode="In" />
+    <Parameter Name="notes" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_login_history" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="uid" Type="int" Mode="In" />
+    <Parameter Name="date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_recovery_batch_list" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_recovery_ta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_recovery_tp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_recovery_ts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_recovery_vtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_recovery_vts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_recovery_vtu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_report_student_report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_report_student_report_between_dates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date1" Type="date" Mode="In" />
+    <Parameter Name="date2" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_report_student_report_for_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_select_absent_student" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_select_absentees_batch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="day" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_absentees_followup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_attendance_barchart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_attendance_student" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_select_bar_chart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="days" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_batch_days" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="days" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_select_consolidated_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_customized_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date1" Type="date" Mode="In" />
+    <Parameter Name="date2" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_date_wise_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date1" Type="date" Mode="In" />
+    <Parameter Name="date2" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_date_wise_batch_detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+    <Parameter Name="date1" Type="date" Mode="In" />
+    <Parameter Name="date2" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_distributed_voucher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_select_dropList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_select_faculty_wise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_marked" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_select_MWFGrouping" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_select_sb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_select_session_wise_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_student_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_select_student_id_for_bt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_select_student_id_for_do" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_select_student_wise_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_select_student_wise_attendance_detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_select_timing_wise_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="days" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_todays_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_todays_attendance_total" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_select_total_batch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="days" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_select_total_marked_batch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+    <Parameter Name="day" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_select_total_student" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="days" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_select_total_student_absent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="days" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_total_student_present" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="days" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_total_unmarked_batch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+    <Parameter Name="day" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_select_TTSGrouping" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech" />
+  <Function Name="usp_select_two_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date1" Type="date" Mode="In" />
+    <Parameter Name="date2" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_undistributed_batch_list" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_unmarked_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="days" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_unmarked_batch_list" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="day" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_unreceived_batch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_unreceived_student" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_voucher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_select_voucher_student" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="batch" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_select_zero_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="date" Type="date" Mode="In" />
+    <Parameter Name="days" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_update_student_attendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="status" Type="varchar" Mode="In" />
+    <Parameter Name="markat" Type="datetime" Mode="In" />
+    <Parameter Name="markby" Type="int" Mode="In" />
+    <Parameter Name="notes" Type="varchar" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_update_student_drop_out" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="note" Type="varchar" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_update_student_voucher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="status" Type="varchar" Mode="In" />
+    <Parameter Name="markat" Type="datetime" Mode="In" />
+    <Parameter Name="markby" Type="int" Mode="In" />
+    <Parameter Name="notes" Type="varchar" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_update_user_password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saaptech">
+    <Parameter Name="password" Type="varchar" Mode="In" />
+    <Parameter Name="uid" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="AptechSFCRecordModelStoreContainer">
+    <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="Batch" EntityType="Self.Batch" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="BatchBook" EntityType="Self.BatchBook" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="BatchTeacherDetails" EntityType="Self.BatchTeacherDetails" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="CourseDetail" EntityType="Self.CourseDetail" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="Days" EntityType="Self.Days" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="LoginHistory" EntityType="Self.LoginHistory" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="Semester" EntityType="Self.Semester" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="SlotAssign" EntityType="Self.SlotAssign" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="StudentBatch" EntityType="Self.StudentBatch" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="StudentBatchTransfer" EntityType="Self.StudentBatchTransfer" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="saaptech" store:Type="Tables" />
+    <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="saaptech" store:Type="Tables" />
+    <AssociationSet Name="FK__Batch__BatchDays__2E1BDC42" Association="Self.FK__Batch__BatchDays__2E1BDC42">
+      <End Role="Days" EntitySet="Days" />
+      <End Role="Batch" EntitySet="Batch" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Batch__BatchDays__3587F3E0" Association="Self.FK__Batch__BatchDays__3587F3E0">
+      <End Role="Days" EntitySet="Days" />
+      <End Role="Batch" EntitySet="Batch" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CourseDet__Cours__37A5467C" Association="Self.FK__CourseDet__Cours__37A5467C">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="CourseDetail" EntitySet="CourseDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CourseDet__Cours__3F115E1A" Association="Self.FK__CourseDet__Cours__3F115E1A">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="CourseDetail" EntitySet="CourseDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SlotAssig__SlotD__41EDCAC5" Association="Self.FK__SlotAssig__SlotD__41EDCAC5">
+      <End Role="Days" EntitySet="Days" />
+      <End Role="SlotAssign" EntitySet="SlotAssign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SlotAssig__SlotD__440B1D61" Association="Self.FK__SlotAssig__SlotD__440B1D61">
+      <End Role="Days" EntitySet="Days" />
+      <End Role="SlotAssign" EntitySet="SlotAssign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SlotAssig__SlotI__42E1EEFE" Association="Self.FK__SlotAssig__SlotI__42E1EEFE">
+      <End Role="TimeSlot" EntitySet="TimeSlot" />
+      <End Role="SlotAssign" EntitySet="SlotAssign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SlotAssig__SlotI__44FF419A" Association="Self.FK__SlotAssig__SlotI__44FF419A">
+      <End Role="TimeSlot" EntitySet="TimeSlot" />
+      <End Role="SlotAssign" EntitySet="SlotAssign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SlotAssig__UserI__43D61337" Association="Self.FK__SlotAssig__UserI__43D61337">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SlotAssign" EntitySet="SlotAssign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SlotAssig__UserI__45F365D3" Association="Self.FK__SlotAssig__UserI__45F365D3">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SlotAssign" EntitySet="SlotAssign" />
+    </AssociationSet>
+    <AssociationSet Name="fk_attendance_logged_user" Association="Self.fk_attendance_logged_user">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Attendance" EntitySet="Attendance" />
+    </AssociationSet>
+    <AssociationSet Name="fk_attendance_student_id" Association="Self.fk_attendance_student_id">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Attendance" EntitySet="Attendance" />
+    </AssociationSet>
+    <AssociationSet Name="fk_batch_book_id" Association="Self.fk_batch_book_id">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="BatchBook" EntitySet="BatchBook" />
+    </AssociationSet>
+    <AssociationSet Name="fk_batch_book_logged_user" Association="Self.fk_batch_book_logged_user">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BatchBook" EntitySet="BatchBook" />
+    </AssociationSet>
+    <AssociationSet Name="fk_batch_code_id" Association="Self.fk_batch_code_id">
+      <End Role="Batch" EntitySet="Batch" />
+      <End Role="BatchBook" EntitySet="BatchBook" />
+    </AssociationSet>
+    <AssociationSet Name="fk_batch_logged_user" Association="Self.fk_batch_logged_user">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Batch" EntitySet="Batch" />
+    </AssociationSet>
+    <AssociationSet Name="fk_batch_teacher_code" Association="Self.fk_batch_teacher_code">
+      <End Role="Batch" EntitySet="Batch" />
+      <End Role="BatchTeacherDetails" EntitySet="BatchTeacherDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_batch_timing" Association="Self.fk_batch_timing">
+      <End Role="TimeSlot" EntitySet="TimeSlot" />
+      <End Role="Batch" EntitySet="Batch" />
+    </AssociationSet>
+    <AssociationSet Name="fk_course_semester" Association="Self.fk_course_semester">
+      <End Role="CourseDetail" EntitySet="CourseDetail" />
+      <End Role="Semester" EntitySet="Semester" />
+    </AssociationSet>
+    <AssociationSet Name="fk_login_user" Association="Self.fk_login_user">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="LoginHistory" EntitySet="LoginHistory" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sbt_batchCode" Association="Self.fk_sbt_batchCode">
+      <End Role="Batch" EntitySet="Batch" />
+      <End Role="StudentBatchTransfer" EntitySet="StudentBatchTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sbt_studentid" Association="Self.fk_sbt_studentid">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentBatchTransfer" EntitySet="StudentBatchTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sbt_userid" Association="Self.fk_sbt_userid">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="StudentBatchTransfer" EntitySet="StudentBatchTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_semester_book" Association="Self.fk_semester_book">
+      <End Role="Semester" EntitySet="Semester" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="fk_student_course" Association="Self.fk_student_course">
+      <End Role="CourseDetail" EntitySet="CourseDetail" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="fk_studentbatch_arstatus" Association="Self.fk_studentbatch_arstatus">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="StudentBatch" EntitySet="StudentBatch" />
+    </AssociationSet>
+    <AssociationSet Name="fk_studentbatch_batch" Association="Self.fk_studentbatch_batch">
+      <End Role="Batch" EntitySet="Batch" />
+      <End Role="StudentBatch" EntitySet="StudentBatch" />
+    </AssociationSet>
+    <AssociationSet Name="fk_studentbatch_stdid" Association="Self.fk_studentbatch_stdid">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentBatch" EntitySet="StudentBatch" />
+    </AssociationSet>
+    <AssociationSet Name="fk_studentbatch_userid" Association="Self.fk_studentbatch_userid">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="StudentBatch" EntitySet="StudentBatch" />
+    </AssociationSet>
+    <AssociationSet Name="fk_students_arstatus_user" Association="Self.fk_students_arstatus_user">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="fk_students_logged_user" Association="Self.fk_students_logged_user">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="fk_teacher_code_id" Association="Self.fk_teacher_code_id">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="BatchTeacherDetails" EntitySet="BatchTeacherDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_teacher_logged_user" Association="Self.fk_teacher_logged_user">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BatchTeacherDetails" EntitySet="BatchTeacherDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_user_role" Association="Self.fk_user_role">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_voucher_logged_user" Association="Self.fk_voucher_logged_user">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+    <AssociationSet Name="fk_voucher_student_id" Association="Self.fk_voucher_student_id">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

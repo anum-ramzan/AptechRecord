@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AptechRecord.Models.usp_select_voucher_Result>
+
+@{
+    ViewBag.Title = "Voucher Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section contentHeader{
+    <h1>
+        Voucher
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li>Voucher</li>
+    </ol>
+}
+
+<table id="Vouchertable" class="table">
+    <thead>
+        <tr>
+            <th>
+                Student Id
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BatchCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VoucherStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryDoneBy)
+            </th>
+            <th>
+                Entry Done At
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BatchCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VoucherStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryDoneBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Entry)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

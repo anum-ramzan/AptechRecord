@@ -1,0 +1,87 @@
+﻿@model AptechRecord.Models.User
+
+@{
+    Layout = null;
+    ViewBag.Title = "Aptech Record - Login";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="~/images/icons/favicon.ico">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/hamburgers.min.css" rel="stylesheet" />
+    <link href="~/Content/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/login-main.css" rel="stylesheet" />
+    <link href="~/Content/login-util.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        <h6>@ViewBag.ErrorMessage</h6>
+                    </div>
+                }
+                else
+                {
+                    <div class="login100-pic js-tilt" data-tilt="" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
+                        <img src="~/images/img-01.png" alt="IMG">
+                    </div>
+                    using (Html.BeginForm("Login", "Accounts", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+                    {
+                        <form class="login100-form validate-form">
+                            <span class="login100-form-title">
+                                Member Login
+                            </span>
+
+                            <div class="wrap-input100 validate-input">
+                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "input100", type = "text", placeholder = "Username" } })
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                            </div>
+
+                            <div class="wrap-input100 validate-input">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input100", type = "password", placeholder = "Password" } })
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                </span>
+                            </div>
+
+                            @if (ViewBag.InvalidUser != null)
+                            {
+                                <p class="alert alert-danger" role="alert">@ViewBag.InvalidUser</p>
+                            }
+                            <div class="container-login100-form-btn">
+                                <input type="submit" name="login" value="Login" class="login100-form-btn" />
+                            </div>
+                        </form>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/select2.min.js"></script>
+    <script src="~/Scripts/tilt.jquery.min.js"></script>
+    <script src="~/Scripts/login-main.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/custom-script.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+</body>
+</html>

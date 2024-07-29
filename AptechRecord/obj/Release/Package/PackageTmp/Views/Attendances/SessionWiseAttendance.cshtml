@@ -1,0 +1,78 @@
+﻿@model IEnumerable<AptechRecord.Models.usp_select_session_wise_attendance_Result>
+
+@{
+    ViewBag.Title = "Session Wise Attendance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section contentHeader{
+    <h1>
+        Attendance
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href=@Url.Action("Index", "Attendances")><i class="fa fa-list"></i>Attendance</a></li>
+        <li>Session Wise Attendance</li>
+    </ol>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Session Wise Attendance</h3>
+            </div>
+            <div class="box-body">
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        <h6>@ViewBag.ErrorMessage</h6>
+                    </div>
+                }
+                else
+                {
+                    <table id="SessionWiseAttendancetable" class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Session
+                                </th>
+                                <th>
+                                    MWF
+                                </th>
+                                <th>
+                                    TTS
+                                </th>
+                                <th>Average</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrderBy)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MWFPercentage)%
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TTSPercentage)%
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Average)%
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table> 
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.dataTables_empty').html('<b>No Attendance found yet<b>')
+    });
+</script>

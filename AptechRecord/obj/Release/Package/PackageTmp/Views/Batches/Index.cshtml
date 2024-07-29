@@ -1,0 +1,95 @@
+﻿@model IEnumerable<AptechRecord.Models.Batch>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section contentHeader{
+    <h1>
+        Batches
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li>Batches</li>
+    </ol>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">@ViewBag.Title</h3>
+            </div>
+            <div class="box-body">
+
+                @if (TempData["NoBIdFound"] != null)
+                {
+                    <p class="alert alert-danger text-danger" role="alert">@TempData["NoBIdFound"]</p>
+                }
+                <p>
+                    @Html.ActionLink("Add new batch", "Create", null, new { @class = "btn btn-danger" })
+                </p>
+                <table id="Batchtable" class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Batch Code
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.BatchStartDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.BatchStatus)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Notes)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Day.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.User.Username)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TimeSlot.Slot)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BatchCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BatchStartDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BatchStatus)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Notes)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Day.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.User.Username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TimeSlot.Slot)
+                                </td>
+                                <td>
+                                    <a href=@Url.Action("EditBatch", new { id = item.BatchCode })><i class="fa fa-edit"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>setTimeout(function () { $('.alert.alert-danger.text-danger').fadeOut(); }, 3000)</script>

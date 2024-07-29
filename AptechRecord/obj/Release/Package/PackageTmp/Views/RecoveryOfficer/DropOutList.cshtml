@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AptechRecord.Models.usp_select_dropList_Result>
+
+@{
+    ViewBag.Title = "Drop Out list";
+    Layout = "~/Views/Shared/_LayoutPageRO.cshtml";
+}
+
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <h6>@ViewBag.ErrorMessage</h6>
+    </div>
+}
+else
+{
+
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Student Dropout List</h3>
+        </div>
+        <div class="box-body">
+            <div class="col-sm-12">
+
+                <table class="table" id="StudentDropoutListTable">
+                    <thead>
+                        <tr>
+                            <th>Student Id</th>
+                            <th>Student Name</th>
+                            <th>Father Name</th>
+                            <th>Course</th>
+                            <th>Batch Code</th>
+                            <th>Contact</th>
+                            <th>Address</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.StudentId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.StudentName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.FatherName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.CourseDetailName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.BatchCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.Contact)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.Notes)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- /.box-body -->
+    </div>
+}

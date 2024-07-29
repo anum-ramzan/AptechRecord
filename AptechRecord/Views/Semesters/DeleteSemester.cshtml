@@ -1,0 +1,49 @@
+﻿@model AptechRecord.Models.Semester
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Semester</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SemesterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SemesterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SemesterSession)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SemesterSession)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseDetail.CourseDetailName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseDetail.CourseDetailName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

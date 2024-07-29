@@ -1,0 +1,20 @@
+﻿@model AptechRecord.Models.usp_select_unmarked_attendance_Result
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BatchCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Slot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BatchDays)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @ViewBag.GetDate
+        </td>
+        <td>UnMarked</td>
+    </tr>

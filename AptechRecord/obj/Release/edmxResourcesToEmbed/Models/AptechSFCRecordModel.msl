@@ -1,0 +1,794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AptechSFCRecordModelStoreContainer" CdmEntityContainer="AptechSFCRecordEntities">
+    <EntitySetMapping Name="Attendances">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.Attendance">
+        <MappingFragment StoreEntitySet="Attendance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="AttendanceDate" ColumnName="AttendanceDate" />
+          <ScalarProperty Name="AttenddanceStatus" ColumnName="AttenddanceStatus" />
+          <ScalarProperty Name="AttendanceMarkAt" ColumnName="AttendanceMarkAt" />
+          <ScalarProperty Name="AttendanceMarkBy" ColumnName="AttendanceMarkBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Batches">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.Batch">
+        <MappingFragment StoreEntitySet="Batch">
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="BatchTiming" ColumnName="BatchTiming" />
+          <ScalarProperty Name="BatchStartDate" ColumnName="BatchStartDate" />
+          <ScalarProperty Name="BatchStatus" ColumnName="BatchStatus" />
+          <ScalarProperty Name="BatchBy" ColumnName="BatchBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="BatchDays" ColumnName="BatchDays" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BatchBooks">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.BatchBook">
+        <MappingFragment StoreEntitySet="BatchBook">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="BatchBook1" ColumnName="BatchBook" />
+          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+          <ScalarProperty Name="BookStatus" ColumnName="BookStatus" />
+          <ScalarProperty Name="ChangesDoneBy" ColumnName="ChangesDoneBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BatchTeacherDetails">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.BatchTeacherDetail">
+        <MappingFragment StoreEntitySet="BatchTeacherDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="TeacherCode" ColumnName="TeacherCode" />
+          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+          <ScalarProperty Name="TeacherStatus" ColumnName="TeacherStatus" />
+          <ScalarProperty Name="ChangesDoneBy" ColumnName="ChangesDoneBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.Book">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BookName" ColumnName="BookName" />
+          <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseDetails">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.CourseDetail">
+        <MappingFragment StoreEntitySet="CourseDetail">
+          <ScalarProperty Name="CourseDetail1" ColumnName="CourseDetail" />
+          <ScalarProperty Name="CourseDetailName" ColumnName="CourseDetailName" />
+          <ScalarProperty Name="CourseDetailTree" ColumnName="CourseDetailTree" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.Cours">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CourseAbbreviation" ColumnName="CourseAbbreviation" />
+          <ScalarProperty Name="CourseStatus" ColumnName="CourseStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Days">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.Day">
+        <MappingFragment StoreEntitySet="Days">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="EmployeeStatus" ColumnName="EmployeeStatus" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLogs">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.ErrorLog">
+        <MappingFragment StoreEntitySet="ErrorLog">
+          <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="ErrorDetail" ColumnName="ErrorDetail" />
+          <ScalarProperty Name="ErrorTime" ColumnName="ErrorTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginHistories">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.LoginHistory">
+        <MappingFragment StoreEntitySet="LoginHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LoginDateTime" ColumnName="LoginDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Rolename" ColumnName="Rolename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semesters">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.Semester">
+        <MappingFragment StoreEntitySet="Semester">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SemesterName" ColumnName="SemesterName" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="SemesterSession" ColumnName="SemesterSession" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SlotAssigns">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.SlotAssign">
+        <MappingFragment StoreEntitySet="SlotAssign">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+          <ScalarProperty Name="SlotDays" ColumnName="SlotDays" />
+          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+          <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentBatches">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.StudentBatch">
+        <MappingFragment StoreEntitySet="StudentBatch">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+          <ScalarProperty Name="BatchStatus" ColumnName="BatchStatus" />
+          <ScalarProperty Name="ChangesDoneBy" ColumnName="ChangesDoneBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentBatchTransfers">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.StudentBatchTransfer">
+        <MappingFragment StoreEntitySet="StudentBatchTransfer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+          <ScalarProperty Name="TransferDate" ColumnName="TransferDate" />
+          <ScalarProperty Name="ChangesDoneBy" ColumnName="ChangesDoneBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="NICNumber" ColumnName="NICNumber" />
+          <ScalarProperty Name="StudentCourse" ColumnName="StudentCourse" />
+          <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+          <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ChangesDoneBy" ColumnName="ChangesDoneBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeSlots">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.TimeSlot">
+        <MappingFragment StoreEntitySet="TimeSlot">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="RamazanSlot" ColumnName="RamazanSlot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="Userstatus" ColumnName="Userstatus" />
+          <ScalarProperty Name="UserCreatedOn" ColumnName="UserCreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vouchers">
+      <EntityTypeMapping TypeName="AptechSFCRecordModel.Voucher">
+        <MappingFragment StoreEntitySet="Voucher">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="VoucherDate" ColumnName="VoucherDate" />
+          <ScalarProperty Name="VoucherStatus" ColumnName="VoucherStatus" />
+          <ScalarProperty Name="VoucherDistributedAt" ColumnName="VoucherDistributedAt" />
+          <ScalarProperty Name="VoucherDistributedBy" ColumnName="VoucherDistributedBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="auto_sa_id" FunctionName="AptechSFCRecordModel.Store.auto_sa_id" />
+    <FunctionImportMapping FunctionImportName="usp_auto_attendance" FunctionName="AptechSFCRecordModel.Store.usp_auto_attendance" />
+    <FunctionImportMapping FunctionImportName="usp_auto_errorid" FunctionName="AptechSFCRecordModel.Store.usp_auto_errorid" />
+    <FunctionImportMapping FunctionImportName="usp_auto_loginhistory" FunctionName="AptechSFCRecordModel.Store.usp_auto_loginhistory" />
+    <FunctionImportMapping FunctionImportName="usp_auto_userid" FunctionName="AptechSFCRecordModel.Store.usp_auto_userid" />
+    <FunctionImportMapping FunctionImportName="usp_auto_voucher" FunctionName="AptechSFCRecordModel.Store.usp_auto_voucher" />
+    <FunctionImportMapping FunctionImportName="usp_check_student_attendance" FunctionName="AptechSFCRecordModel.Store.usp_check_student_attendance" />
+    <FunctionImportMapping FunctionImportName="usp_check_student_voucher" FunctionName="AptechSFCRecordModel.Store.usp_check_student_voucher" />
+    <FunctionImportMapping FunctionImportName="usp_error_log" FunctionName="AptechSFCRecordModel.Store.usp_error_log" />
+    <FunctionImportMapping FunctionImportName="usp_insert_attendance" FunctionName="AptechSFCRecordModel.Store.usp_insert_attendance" />
+    <FunctionImportMapping FunctionImportName="usp_insert_voucher" FunctionName="AptechSFCRecordModel.Store.usp_insert_voucher" />
+    <FunctionImportMapping FunctionImportName="usp_login" FunctionName="AptechSFCRecordModel.Store.usp_login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_login_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="Userstatus" ColumnName="Userstatus" />
+          <ScalarProperty Name="UserCreatedOn" ColumnName="UserCreatedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_login_history" FunctionName="AptechSFCRecordModel.Store.usp_login_history" />
+    <FunctionImportMapping FunctionImportName="usp_recovery_batch_list" FunctionName="AptechSFCRecordModel.Store.usp_recovery_batch_list">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_recovery_batch_list_Result">
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Present" ColumnName="Present" />
+          <ScalarProperty Name="Absent" ColumnName="Absent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_recovery_ta" FunctionName="AptechSFCRecordModel.Store.usp_recovery_ta" />
+    <FunctionImportMapping FunctionImportName="usp_recovery_tp" FunctionName="AptechSFCRecordModel.Store.usp_recovery_tp" />
+    <FunctionImportMapping FunctionImportName="usp_recovery_ts" FunctionName="AptechSFCRecordModel.Store.usp_recovery_ts" />
+    <FunctionImportMapping FunctionImportName="usp_recovery_vtr" FunctionName="AptechSFCRecordModel.Store.usp_recovery_vtr" />
+    <FunctionImportMapping FunctionImportName="usp_recovery_vts" FunctionName="AptechSFCRecordModel.Store.usp_recovery_vts" />
+    <FunctionImportMapping FunctionImportName="usp_recovery_vtu" FunctionName="AptechSFCRecordModel.Store.usp_recovery_vtu" />
+    <FunctionImportMapping FunctionImportName="usp_report_student_report" FunctionName="AptechSFCRecordModel.Store.usp_report_student_report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_report_student_report_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Performance" ColumnName="Performance" />
+          <ScalarProperty Name="PerformanceRemarks" ColumnName="PerformanceRemarks" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Book" ColumnName="Book" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_report_student_report_between_dates" FunctionName="AptechSFCRecordModel.Store.usp_report_student_report_between_dates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_report_student_report_between_dates_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Performance" ColumnName="Performance" />
+          <ScalarProperty Name="PerformanceRemarks" ColumnName="PerformanceRemarks" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Book" ColumnName="Book" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_report_student_report_for_user" FunctionName="AptechSFCRecordModel.Store.usp_report_student_report_for_user">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_report_student_report_for_user_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Performance" ColumnName="Performance" />
+          <ScalarProperty Name="PerformanceRemarks" ColumnName="PerformanceRemarks" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Book" ColumnName="Book" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_absent_student" FunctionName="AptechSFCRecordModel.Store.usp_select_absent_student">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_absent_student_Result">
+          <ScalarProperty Name="Studentid" ColumnName="Studentid" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_absentees_batch" FunctionName="AptechSFCRecordModel.Store.usp_select_absentees_batch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_absentees_batch_Result">
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="BatchTiming" ColumnName="BatchTiming" />
+          <ScalarProperty Name="BatchStartDate" ColumnName="BatchStartDate" />
+          <ScalarProperty Name="BBatchStatus" ColumnName="BBatchStatus" />
+          <ScalarProperty Name="BatchBy" ColumnName="BatchBy" />
+          <ScalarProperty Name="BNotes" ColumnName="BNotes" />
+          <ScalarProperty Name="BatchDays" ColumnName="BatchDays" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_absentees_followup" FunctionName="AptechSFCRecordModel.Store.usp_select_absentees_followup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_absentees_followup_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+          <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_attendance_barchart" FunctionName="AptechSFCRecordModel.Store.usp_select_attendance_barchart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_attendance_barchart_Result">
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Present" ColumnName="Present" />
+          <ScalarProperty Name="Absent" ColumnName="Absent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_attendance_student" FunctionName="AptechSFCRecordModel.Store.usp_select_attendance_student">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_attendance_student_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_bar_chart" FunctionName="AptechSFCRecordModel.Store.usp_select_bar_chart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_bar_chart_Result">
+          <ScalarProperty Name="TSId" ColumnName="TSId" />
+          <ScalarProperty Name="TSSlot" ColumnName="TSSlot" />
+          <ScalarProperty Name="TotalStudent" ColumnName="TotalStudent" />
+          <ScalarProperty Name="Head_Count" ColumnName="Head Count" />
+          <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_batch_days" FunctionName="AptechSFCRecordModel.Store.usp_select_batch_days" />
+    <FunctionImportMapping FunctionImportName="usp_select_consolidated_attendance" FunctionName="AptechSFCRecordModel.Store.usp_select_consolidated_attendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_consolidated_attendance_Result">
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="Head_Count" ColumnName="Head Count" />
+          <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_customized_attendance" FunctionName="AptechSFCRecordModel.Store.usp_select_customized_attendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_customized_attendance_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AStudentId" ColumnName="AStudentId" />
+          <ScalarProperty Name="AttendanceDate" ColumnName="AttendanceDate" />
+          <ScalarProperty Name="AttenddanceStatus" ColumnName="AttenddanceStatus" />
+          <ScalarProperty Name="AttendanceMarkAt" ColumnName="AttendanceMarkAt" />
+          <ScalarProperty Name="AttendanceMarkBy" ColumnName="AttendanceMarkBy" />
+          <ScalarProperty Name="ANotes" ColumnName="ANotes" />
+          <ScalarProperty Name="SBId" ColumnName="SBId" />
+          <ScalarProperty Name="SBStudentId" ColumnName="SBStudentId" />
+          <ScalarProperty Name="SBBatchCode" ColumnName="SBBatchCode" />
+          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+          <ScalarProperty Name="SBBatchStatus" ColumnName="SBBatchStatus" />
+          <ScalarProperty Name="SBChangesDoneBy" ColumnName="SBChangesDoneBy" />
+          <ScalarProperty Name="SBNotes" ColumnName="SBNotes" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="NICNumber" ColumnName="NICNumber" />
+          <ScalarProperty Name="StudentCourse" ColumnName="StudentCourse" />
+          <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+          <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SChangesDoneBy" ColumnName="SChangesDoneBy" />
+          <ScalarProperty Name="SNotes" ColumnName="SNotes" />
+          <ScalarProperty Name="BBatchCode" ColumnName="BBatchCode" />
+          <ScalarProperty Name="BatchTiming" ColumnName="BatchTiming" />
+          <ScalarProperty Name="BatchStartDate" ColumnName="BatchStartDate" />
+          <ScalarProperty Name="BBatchStatus" ColumnName="BBatchStatus" />
+          <ScalarProperty Name="BatchBy" ColumnName="BatchBy" />
+          <ScalarProperty Name="BNotes" ColumnName="BNotes" />
+          <ScalarProperty Name="BatchDays" ColumnName="BatchDays" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="UId" ColumnName="UId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_date_wise_attendance" FunctionName="AptechSFCRecordModel.Store.usp_select_date_wise_attendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_date_wise_attendance_Result">
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Present" ColumnName="Present" />
+          <ScalarProperty Name="Absent" ColumnName="Absent" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_date_wise_batch_detail" FunctionName="AptechSFCRecordModel.Store.usp_select_date_wise_batch_detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_date_wise_batch_detail_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="AttendanceDate" ColumnName="AttendanceDate" />
+          <ScalarProperty Name="AttenddanceStatus" ColumnName="AttenddanceStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_distributed_voucher" FunctionName="AptechSFCRecordModel.Store.usp_select_distributed_voucher" />
+    <FunctionImportMapping FunctionImportName="usp_select_dropList" FunctionName="AptechSFCRecordModel.Store.usp_select_dropList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_dropList_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="CourseDetailName" ColumnName="CourseDetailName" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_faculty_wise" FunctionName="AptechSFCRecordModel.Store.usp_select_faculty_wise">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_faculty_wise_Result">
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="Head_Count" ColumnName="Head Count" />
+          <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_marked" FunctionName="AptechSFCRecordModel.Store.usp_select_marked" />
+    <FunctionImportMapping FunctionImportName="usp_select_MWFGrouping" FunctionName="AptechSFCRecordModel.Store.usp_select_MWFGrouping">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_MWFGrouping_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="TotalBatch" ColumnName="TotalBatch" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_sb" FunctionName="AptechSFCRecordModel.Store.usp_select_sb" />
+    <FunctionImportMapping FunctionImportName="usp_select_session_wise_attendance" FunctionName="AptechSFCRecordModel.Store.usp_select_session_wise_attendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_session_wise_attendance_Result">
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="MAttendance" ColumnName="MAttendance" />
+          <ScalarProperty Name="MWF" ColumnName="MWF" />
+          <ScalarProperty Name="MWFPercentage" ColumnName="MWFPercentage" />
+          <ScalarProperty Name="TAttendance" ColumnName="TAttendance" />
+          <ScalarProperty Name="TTS" ColumnName="TTS" />
+          <ScalarProperty Name="TTSPercentage" ColumnName="TTSPercentage" />
+          <ScalarProperty Name="Average" ColumnName="Average" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_student_attendance" FunctionName="AptechSFCRecordModel.Store.usp_select_student_attendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_student_attendance_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="AttendanceDate" ColumnName="AttendanceDate" />
+          <ScalarProperty Name="AttenddanceStatus" ColumnName="AttenddanceStatus" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="BatchDays" ColumnName="BatchDays" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_student_wise_attendance" FunctionName="AptechSFCRecordModel.Store.usp_select_student_wise_attendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_student_wise_attendance_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Present" ColumnName="Present" />
+          <ScalarProperty Name="Absent" ColumnName="Absent" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_student_wise_attendance_detail" FunctionName="AptechSFCRecordModel.Store.usp_select_student_wise_attendance_detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_student_wise_attendance_detail_Result">
+          <ScalarProperty Name="AttendanceDate" ColumnName="AttendanceDate" />
+          <ScalarProperty Name="AttenddanceStatus" ColumnName="AttenddanceStatus" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AttendanceMarkAt" ColumnName="AttendanceMarkAt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_timing_wise_attendance" FunctionName="AptechSFCRecordModel.Store.usp_select_timing_wise_attendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_timing_wise_attendance_Result">
+          <ScalarProperty Name="TSId" ColumnName="TSId" />
+          <ScalarProperty Name="TSSlot" ColumnName="TSSlot" />
+          <ScalarProperty Name="TotalStudent" ColumnName="TotalStudent" />
+          <ScalarProperty Name="Head_Count" ColumnName="Head Count" />
+          <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_todays_attendance" FunctionName="AptechSFCRecordModel.Store.usp_select_todays_attendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_todays_attendance_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AStudentId" ColumnName="AStudentId" />
+          <ScalarProperty Name="AttendanceDate" ColumnName="AttendanceDate" />
+          <ScalarProperty Name="AttenddanceStatus" ColumnName="AttenddanceStatus" />
+          <ScalarProperty Name="AttendanceMarkAt" ColumnName="AttendanceMarkAt" />
+          <ScalarProperty Name="AttendanceMarkBy" ColumnName="AttendanceMarkBy" />
+          <ScalarProperty Name="ANotes" ColumnName="ANotes" />
+          <ScalarProperty Name="SBId" ColumnName="SBId" />
+          <ScalarProperty Name="SBStudentId" ColumnName="SBStudentId" />
+          <ScalarProperty Name="SBBatchCode" ColumnName="SBBatchCode" />
+          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+          <ScalarProperty Name="SBBatchStatus" ColumnName="SBBatchStatus" />
+          <ScalarProperty Name="SBChangesDoneBy" ColumnName="SBChangesDoneBy" />
+          <ScalarProperty Name="SBNotes" ColumnName="SBNotes" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="NICNumber" ColumnName="NICNumber" />
+          <ScalarProperty Name="StudentCourse" ColumnName="StudentCourse" />
+          <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+          <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SChangesDoneBy" ColumnName="SChangesDoneBy" />
+          <ScalarProperty Name="SNotes" ColumnName="SNotes" />
+          <ScalarProperty Name="BBatchCode" ColumnName="BBatchCode" />
+          <ScalarProperty Name="BatchTiming" ColumnName="BatchTiming" />
+          <ScalarProperty Name="BatchStartDate" ColumnName="BatchStartDate" />
+          <ScalarProperty Name="BBatchStatus" ColumnName="BBatchStatus" />
+          <ScalarProperty Name="BatchBy" ColumnName="BatchBy" />
+          <ScalarProperty Name="BNotes" ColumnName="BNotes" />
+          <ScalarProperty Name="BatchDays" ColumnName="BatchDays" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="UId" ColumnName="UId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_todays_attendance_total" FunctionName="AptechSFCRecordModel.Store.usp_select_todays_attendance_total">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_todays_attendance_total_Result">
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_total_batch" FunctionName="AptechSFCRecordModel.Store.usp_select_total_batch" />
+    <FunctionImportMapping FunctionImportName="usp_select_total_marked_batch" FunctionName="AptechSFCRecordModel.Store.usp_select_total_marked_batch" />
+    <FunctionImportMapping FunctionImportName="usp_select_total_student" FunctionName="AptechSFCRecordModel.Store.usp_select_total_student" />
+    <FunctionImportMapping FunctionImportName="usp_select_total_student_absent" FunctionName="AptechSFCRecordModel.Store.usp_select_total_student_absent" />
+    <FunctionImportMapping FunctionImportName="usp_select_total_student_present" FunctionName="AptechSFCRecordModel.Store.usp_select_total_student_present" />
+    <FunctionImportMapping FunctionImportName="usp_select_total_unmarked_batch" FunctionName="AptechSFCRecordModel.Store.usp_select_total_unmarked_batch" />
+    <FunctionImportMapping FunctionImportName="usp_select_TTSGrouping" FunctionName="AptechSFCRecordModel.Store.usp_select_TTSGrouping">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_TTSGrouping_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="TotalBatch" ColumnName="TotalBatch" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_two_attendance" FunctionName="AptechSFCRecordModel.Store.usp_select_two_attendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_two_attendance_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AStudentId" ColumnName="AStudentId" />
+          <ScalarProperty Name="AttendanceDate" ColumnName="AttendanceDate" />
+          <ScalarProperty Name="AttenddanceStatus" ColumnName="AttenddanceStatus" />
+          <ScalarProperty Name="AttendanceMarkAt" ColumnName="AttendanceMarkAt" />
+          <ScalarProperty Name="AttendanceMarkBy" ColumnName="AttendanceMarkBy" />
+          <ScalarProperty Name="ANotes" ColumnName="ANotes" />
+          <ScalarProperty Name="SBId" ColumnName="SBId" />
+          <ScalarProperty Name="SBStudentId" ColumnName="SBStudentId" />
+          <ScalarProperty Name="SBBatchCode" ColumnName="SBBatchCode" />
+          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+          <ScalarProperty Name="SBBatchStatus" ColumnName="SBBatchStatus" />
+          <ScalarProperty Name="SBChangesDoneBy" ColumnName="SBChangesDoneBy" />
+          <ScalarProperty Name="SBNotes" ColumnName="SBNotes" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="NICNumber" ColumnName="NICNumber" />
+          <ScalarProperty Name="StudentCourse" ColumnName="StudentCourse" />
+          <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+          <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SChangesDoneBy" ColumnName="SChangesDoneBy" />
+          <ScalarProperty Name="SNotes" ColumnName="SNotes" />
+          <ScalarProperty Name="BBatchCode" ColumnName="BBatchCode" />
+          <ScalarProperty Name="BatchTiming" ColumnName="BatchTiming" />
+          <ScalarProperty Name="BatchStartDate" ColumnName="BatchStartDate" />
+          <ScalarProperty Name="BBatchStatus" ColumnName="BBatchStatus" />
+          <ScalarProperty Name="BatchBy" ColumnName="BatchBy" />
+          <ScalarProperty Name="BNotes" ColumnName="BNotes" />
+          <ScalarProperty Name="BatchDays" ColumnName="BatchDays" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="UId" ColumnName="UId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_undistributed_batch_list" FunctionName="AptechSFCRecordModel.Store.usp_select_undistributed_batch_list">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_undistributed_batch_list_Result">
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="BatchTiming" ColumnName="BatchTiming" />
+          <ScalarProperty Name="BatchStartDate" ColumnName="BatchStartDate" />
+          <ScalarProperty Name="BatchStatus" ColumnName="BatchStatus" />
+          <ScalarProperty Name="BatchBy" ColumnName="BatchBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="BatchDays" ColumnName="BatchDays" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_unmarked_attendance" FunctionName="AptechSFCRecordModel.Store.usp_select_unmarked_attendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_unmarked_attendance_Result">
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="BatchTiming" ColumnName="BatchTiming" />
+          <ScalarProperty Name="BatchStartDate" ColumnName="BatchStartDate" />
+          <ScalarProperty Name="BatchStatus" ColumnName="BatchStatus" />
+          <ScalarProperty Name="BatchBy" ColumnName="BatchBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="BatchDays" ColumnName="BatchDays" />
+          <ScalarProperty Name="SAId" ColumnName="SAId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+          <ScalarProperty Name="SlotDays" ColumnName="SlotDays" />
+          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+          <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+          <ScalarProperty Name="UId" ColumnName="UId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TId" ColumnName="TId" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_unmarked_batch_list" FunctionName="AptechSFCRecordModel.Store.usp_select_unmarked_batch_list">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_unmarked_batch_list_Result">
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="BatchTiming" ColumnName="BatchTiming" />
+          <ScalarProperty Name="BatchStartDate" ColumnName="BatchStartDate" />
+          <ScalarProperty Name="BatchStatus" ColumnName="BatchStatus" />
+          <ScalarProperty Name="BatchBy" ColumnName="BatchBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="BatchDays" ColumnName="BatchDays" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_unreceived_batch" FunctionName="AptechSFCRecordModel.Store.usp_select_unreceived_batch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_unreceived_batch_Result">
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="BatchTiming" ColumnName="BatchTiming" />
+          <ScalarProperty Name="BatchStartDate" ColumnName="BatchStartDate" />
+          <ScalarProperty Name="BBatchStatus" ColumnName="BBatchStatus" />
+          <ScalarProperty Name="BatchBy" ColumnName="BatchBy" />
+          <ScalarProperty Name="BNotes" ColumnName="BNotes" />
+          <ScalarProperty Name="BatchDays" ColumnName="BatchDays" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_unreceived_student" FunctionName="AptechSFCRecordModel.Store.usp_select_unreceived_student">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_unreceived_student_Result">
+          <ScalarProperty Name="Studentid" ColumnName="Studentid" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_voucher" FunctionName="AptechSFCRecordModel.Store.usp_select_voucher">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_voucher_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="VoucherStatus" ColumnName="VoucherStatus" />
+          <ScalarProperty Name="EntryDoneBy" ColumnName="EntryDoneBy" />
+          <ScalarProperty Name="Entry" ColumnName="Entry" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_voucher_student" FunctionName="AptechSFCRecordModel.Store.usp_select_voucher_student">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_voucher_student_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_select_zero_attendance" FunctionName="AptechSFCRecordModel.Store.usp_select_zero_attendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_zero_attendance_Result">
+          <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_update_student_attendance" FunctionName="AptechSFCRecordModel.Store.usp_update_student_attendance" />
+    <FunctionImportMapping FunctionImportName="usp_update_student_voucher" FunctionName="AptechSFCRecordModel.Store.usp_update_student_voucher" />
+    <FunctionImportMapping FunctionImportName="usp_update_user_password" FunctionName="AptechSFCRecordModel.Store.usp_update_user_password" />
+    <FunctionImportMapping FunctionImportName="usp_select_student_id_for_do" FunctionName="AptechSFCRecordModel.Store.usp_select_student_id_for_do">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_student_id_for_do_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_update_student_drop_out" FunctionName="AptechSFCRecordModel.Store.usp_update_student_drop_out" />
+    <FunctionImportMapping FunctionImportName="usp_select_student_id_for_bt" FunctionName="AptechSFCRecordModel.Store.usp_select_student_id_for_bt">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AptechSFCRecordModel.usp_select_student_id_for_bt_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="BatchCode" ColumnName="BatchCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

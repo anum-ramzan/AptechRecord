@@ -1,0 +1,310 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+@section contentHeader{
+    <h1>
+        Dashbaord
+        <small>Welcome</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+    </ol>
+}
+
+@if (TempData["SuccessMsg"] != null)
+{
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                @TempData["SuccessMsg"]
+            </div>
+        </div>
+    </div>
+}
+<div class="row">
+    <!-- Course List box-->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-black">
+            <div class="inner">
+                <h3>@ViewBag.CoursesCount</h3>
+
+                <p>Courses</p>
+            </div>
+            <div class="icon">
+                <img src="~/images/course.png" />
+            </div>
+        </div>
+    </div>
+    <!-- Course List box-->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-black">
+            <div class="inner">
+                <h3>@ViewBag.BatchesCount</h3>
+
+                <p>Batches</p>
+            </div>
+            <div class="icon">
+                <img src="~/images/batch.png" />
+            </div>
+        </div>
+    </div>
+    <!-- Course List box-->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-black">
+            <div class="inner">
+                <h3>@ViewBag.StudentsCount</h3>
+
+                <p>Students</p>
+            </div>
+            <div class="icon">
+                <img src="~/images/student.png" />
+            </div>
+        </div>
+    </div>
+    <!-- Teachers List box-->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-black">
+            <div class="inner">
+                <h3>@ViewBag.FacultiesCount</h3>
+                <p>Faculties</p>
+            </div>
+            <div class="icon">
+                <img src="~/images/professor.png" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-xs-12">
+        <a href=@Url.Action("TodaysReport", "Attendances") class="no-styling">
+            <div class="box box-info box-solid">
+                <div class="box-header">
+                    <h3 class="box-title">Daily Report</h3>
+                </div>
+                <div class="box-body">
+                    <p>
+                        <b>Report for current date (@DateTime.Now.AddHours(9.00000).ToString("dddd, MMMM d, yyyy"))</b>
+                    </p>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-xs-12">
+        <a href=@Url.Action("TwoDaysReport", "Attendances") class="no-styling">
+            <div class="box box-danger box-solid">
+                <div class="box-header">
+                    <h3 class="box-title">Last Two Days Report</h3>
+                </div>
+                <div class="box-body">
+                    <p><b>Last two days report (one for MWF and one for TTS)</b></p>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-xs-12">
+        <a href=@Url.Action("UnMarkBatches", "Attendances") class="no-styling">
+            <div class="box box-info box-solid">
+                <div class="box-header">
+                    <h3 class="box-title">Daily Unmarked Batch Report</h3>
+                </div>
+                <div class="box-body">
+                    <p>
+                        <b>Report for @DateTime.Now.AddHours(9.00000).ToString("dddd, MMMM d, yyyy")</b>
+                    </p>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-xs-12">
+        <a href=@Url.Action("VoucherReport", "Vouchers") class="no-styling">
+            <div class="box box-success box-solid">
+                <div class="box-header">
+                    <h3 class="box-title">Voucher Report</h3>
+                </div>
+                <div class="box-body">
+                    <p>
+                        <b>Report for the of @DateTime.Now.AddHours(9.00000).ToString("MMMM yyyy")</b>
+                    </p>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </a>
+    </div>
+</div>
+<hr class="separation-line" />
+<div class="row">
+    <div class="col-sm-6">
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <h3 class="box-title">Attendance for MWF Days</h3>
+            </div>
+            <div class="box-body">
+                <canvas id="myChartM"></canvas>
+            </div>
+            <div class="box-footer">
+                Attendance for Date : @ViewBag.MWFDate
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <h3 class="box-title">Attendance for TTS Days</h3>
+            </div>
+            <div class="box-body">
+                <canvas id="myChartT"></canvas>
+            </div>
+            <div class="box-footer">
+                Attendance for Date : @ViewBag.TTSDate
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">Batches in Monday/Wednesday/Friday</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div id="MWFcontainer" style=""></div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">Batches in Tuesday/Thursday/Saturday</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div id="TTScontainer"></div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>
+<!--$("#sparkline").sparkline([1,1,2], {
+    type: 'pie',
+    width: '100px',
+    height: '100px'});-->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+    $('#Marked_Unmarked_Batches_Attendance_List').click(function () {
+        window.location = "Attendances/MarkUnMarkBatches";
+    });
+
+    $(function () {
+        /*bar charts*/
+        var data = MWFCharts();
+        BarChartDataMWF(data);
+        /*bar charts tts*/
+        var data = TTSCharts();
+        BarChartDataTTS(data);
+    });
+
+    function MWFCharts() {
+        var TSSlot = [];
+        var TotalStudent = [];
+        var Head_Count = [];
+        $.ajax({
+            url: "/Admin/BarChartForMwf/",
+            dataType: 'json',
+            async: false
+        }).done(function (data) {
+            data.forEach(function (obj) {
+                TSSlot.push(obj.TSSlot);
+                TotalStudent.push(obj.TotalStudent);
+                Head_Count.push(obj.Head_Count);
+            });
+        });
+        return {
+            TSSlot: TSSlot,
+            TotalStudent: TotalStudent,
+            Head_Count: Head_Count
+        };
+    }
+
+    function BarChartDataMWF(data) {
+        var ctx = document.getElementById("myChartM").getContext('2d');
+        var myChart = new Chart(ctx,
+                {
+                    type: 'bar',
+                    data: {
+                        labels: data.TSSlot, // here i want to show my date value
+                        datasets: [
+                            {
+                                label: 'Total Students',
+                                data: data.TotalStudent, // here show my total count date wise
+                                backgroundColor: "rgba(5, 71, 127, 1)"
+                            }, {
+                                label: 'Present Students',
+                                data: data.Head_Count,
+                                backgroundColor: "rgba(5, 127, 59, 1)"
+                            }
+                        ]
+                    }
+                });
+    }
+
+    function TTSCharts() {
+        var TSSlot = [];
+        var TotalStudent = [];
+        var Head_Count = [];
+        $.ajax({
+            url: "/Admin/BarChartForTts/",
+            dataType: 'json',
+            async: false
+        }).done(function (data) {
+            data.forEach(function (obj) {
+                TSSlot.push(obj.TSSlot);
+                TotalStudent.push(obj.TotalStudent);
+                Head_Count.push(obj.Head_Count);
+            });
+        });
+        return {
+            TSSlot: TSSlot,
+            TotalStudent: TotalStudent,
+            Head_Count: Head_Count
+        };
+    }
+
+    function BarChartDataTTS(data) {
+        var ctx = document.getElementById("myChartT").getContext('2d');
+        var myChart = new Chart(ctx,
+                {
+                    type: 'bar',
+                    data: {
+                        labels: data.TSSlot, // here i want to show my date value
+                        datasets: [
+                            {
+                                label: 'Total Students',
+                                data: data.TotalStudent, // here show my total count date wise
+                                backgroundColor: "rgba(5, 71, 127, 1)"
+                            }, {
+                                label: 'Present Students',
+                                data: data.Head_Count,
+                                backgroundColor: "rgba(5, 127, 59, 1)"
+                            }
+                        ]
+                    }
+                });
+    }
+
+</script>

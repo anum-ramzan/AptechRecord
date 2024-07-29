@@ -1,0 +1,113 @@
+﻿.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(../images/ajax-loader.gif) 50% 50% no-repeat rgb(249,249,249);
+    opacity: .95;
+}
+
+.icon img {
+    margin-bottom: 40px;
+}
+
+.table i.fa.fa-edit {
+    background-color: #008000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.table i.fa.fa-trash {
+    background-color: #cb0303;
+    color: #fff;
+    padding: 10px 11.5px;
+    border-radius: 5px;
+}
+
+.table i.fa.fa-eye {
+    background-color: #031388;
+    color: #fff;
+    padding: 10px 11.5px;
+    border-radius: 5px;
+}
+
+.table i.fa.fa-id-card {
+    background-color: #006880;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.disabled-input {
+    opacity: 0.5 !important;
+    cursor: ne-resize;
+    pointer-events: none;
+}
+
+#MWFcontainer,
+#TTScontainer {
+    height: 350px;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+    border: 1px solid #000000;
+    background: #5a5f61;
+    font-weight: normal;
+    color: #fff;
+}
+
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.no-styling {
+    color: #000;
+    text-decoration: none;
+}
+
+    .no-styling:hover .box-info .box-body {
+        color: #000;
+        background-color: rgba(0, 192, 239, 0.24);
+    }
+
+    .no-styling:hover .box-danger .box-body {
+        color: #000;
+        background-color: rgba(222, 78, 59, 0.24);
+    }
+
+    .no-styling:hover .box-warning .box-body {
+        color: #000;
+        background-color: rgba(243, 156, 18, 0.24);
+    }
+
+    .no-styling:hover .box-success .box-body {
+        color: #000;
+        background-color: rgba(0, 166, 90, 0.24);
+    }
+
+.border-box {
+    border-bottom: 2px solid #222d32;
+    border-top: 2px solid #222d32;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+#TimingWiseAttendancetable,
+#SessionWiseAttendancetable {
+    width: 900px !important;
+}

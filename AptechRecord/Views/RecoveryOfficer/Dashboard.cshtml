@@ -1,0 +1,93 @@
+﻿@*Recovery Officer Dashboard*@
+
+@model IEnumerable<AptechRecord.Models.usp_recovery_batch_list_Result>
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutPageRO.cshtml";
+}
+
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">Dashboard</h3>
+    </div>
+    <div class="box-body">
+        @if (TempData["SuccessMsg"] != null)
+        {
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                        @TempData["SuccessMsg"]
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="col-sm-3">
+                @Html.ActionLink("Attendance", "Task", "RecoveryOfficer", new { task = "attendance" }, new { @class = "recovery-anchor1" })
+            </div>
+            <div class="col-sm-3">
+                @Html.ActionLink("Absentees Attendance", "Task", "RecoveryOfficer", new { task = "absentees" }, new { @class = "recovery-anchor1" })
+            </div>
+            <div class="col-sm-3">
+                @Html.ActionLink("Voucher", "Task", "RecoveryOfficer", new { task = "voucher" }, new { @class = "recovery-anchor2" })
+            </div>
+            <div class="col-sm-3">
+                @Html.ActionLink("Unreceived Voucher", "Task", "RecoveryOfficer", new { task = "unreceived" }, new { @class = "recovery-anchor2" })
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+                <h5>Total Students : <b>@ViewBag.TotalStudent</b></h5>
+                <hr />
+                <h5>Total Present Students : <b>@ViewBag.TotalPresentStudent</b></h5>
+                <hr />
+                <h5>Total Absent Students : <b>@ViewBag.TotalAbsentStudent</b></h5>
+                <hr />
+                <h5>Total Batches : <b>@ViewBag.TotalBatch</b></h5>
+                <hr />
+                <h5>Total Attendance Marked Batches : <b>@ViewBag.TotalMarkedBatch</b></h5>
+                <hr />
+                <h5>Total Attendance Unmarked Batches : <b>@ViewBag.TotalUnmarkedBatch</b></h5>
+                <hr />
+            </div>
+            <div class="col-sm-6">
+                <h4 class="text-center text-bold"> Attendance Report</h4>
+                <table class="table" id="TodaysBatchMarked">
+                    <thead>
+                        <tr>
+                            <th>Batch Code</th>
+                            <th>Total Students</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelitem => item.BatchCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelitem => item.Total)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelitem => item.Present)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelitem => item.Absent)
+                        </td>
+                    </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- /.box-body -->
+    </div>
+</div>
+<script>setTimeout(function () { $('.alert.alert-success.text-success').fadeOut(); }, 3000)</script>

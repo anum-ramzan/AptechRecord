@@ -1,0 +1,43 @@
+﻿@model AptechRecord.Models.Semester
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Semester</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SemesterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SemesterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SemesterSession)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SemesterSession)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseDetail.CourseDetailName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseDetail.CourseDetailName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

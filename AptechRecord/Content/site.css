@@ -1,0 +1,18 @@
+﻿.error { color: red; } 
+.container-login100 { background: #F7971E; /* fallback for old browsers */ background: -webkit-linear-gradient(to bottom, #FFD200, #F7971E); /* Chrome 10-25, Safari 5.1-6 */ background: linear-gradient(to bottom, #FFD200, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ } 
+.recovery-anchor1, .recovery-anchor2 { display: inline-block; width: 100%; padding: 12px; border: 2px solid #960707; text-align: center; background-color: #730606; color: #fff; font-size: 15px; font-weight: bold; letter-spacing: 1.5px; overflow: auto; } 
+.recovery-anchor1:hover, .recovery-anchor1:active, .recovery-anchor1:focus { background-color: #F7971E; color: #000; } 
+.recovery-anchor2:hover, .recovery-anchor2:active, .recovery-anchor2:focus { background-color: #F7971E; color: #000; } 
+.text-capitalized { text-transform: capitalize; } 
+.hidden { display: none; } 
+.attendance-model-body { padding: 0 20px; } 
+#message { text-align: center; } 
+#message img { width: 100%; max-width: 90px; float: left; margin-right: 15px; } 
+#message h3 { padding: 36px; } 
+#message ul { list-style-type: none; } 
+#TodaysBatchMarked_filter { text-align: center; float: unset; } 
+.div-header { padding: 10px 8px; font-weight: 700; font-size: 15px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; margin: 10px 0 25px; background-color: #ddd; } 
+.div-body { padding: 10px 8px; margin: 10px 0 25px; } 
+.div-body textarea { resize: none; } 
+.text-center { text-align: center !important; }
+.text-right {text-align: right;}

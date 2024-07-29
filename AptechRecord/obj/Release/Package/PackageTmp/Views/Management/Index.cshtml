@@ -1,0 +1,154 @@
+﻿@*Management View*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section contentHeader{
+    <h1>
+        Dashbaord
+        <small>Welcome</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Management")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+    </ol>
+}
+@if (ViewBag.ErrorMessage != null)
+{<div class="row">
+        <div class="col-md-12">
+            <p class="alert text-danger alert-danger">@ViewBag.ErrorMessage</p>
+        </div>
+    </div>
+}
+else
+{
+    if (TempData["SuccessMsg"] != null)
+    {
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                    @TempData["SuccessMsg"]
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <!-- Course List box-->
+        <div class="col-md-3 col-xs-4">
+            <!-- small box -->
+            <div class="small-box bg-black">
+                <div class="inner">
+                    <h3>@ViewBag.CoursesCount</h3>
+
+                    <p>Courses</p>
+                </div>
+                <div class="icon">
+                    <img src="~/images/course.png" />
+                </div>
+            </div>
+        </div>
+        <!-- Batch List box-->
+        <div class="col-md-3 col-xs-4">
+            <!-- small box -->
+            <div class="small-box bg-black">
+                <div class="inner">
+                    <h3>@ViewBag.BatchesCount</h3>
+
+                    <p>Batches</p>
+                </div>
+                <div class="icon">
+                    <img src="~/images/batch.png" />
+                </div>
+            </div>
+        </div>
+        <!-- Student List box-->
+        <div class="col-md-3 col-xs-4">
+            <!-- small box -->
+            <div class="small-box bg-black">
+                <div class="inner">
+                    <h3>@ViewBag.StudentsCount</h3>
+
+                    <p>Students</p>
+                </div>
+                <div class="icon">
+                    <img src="~/images/student.png" />
+                </div>
+            </div>
+        </div>
+        <!-- Teachers List box-->
+        <div class="col-md-3 col-xs-4">
+            <!-- small box -->
+            <div class="small-box bg-black">
+                <div class="inner">
+                    <h3>@ViewBag.FacultiesCount</h3>
+
+                    <p>Faculties</p>
+                </div>
+                <div class="icon">
+                    <img src="~/images/professor.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="box box-danger box-solid">
+                <div class="box-header">
+                    <h2 class="box-title">Daily Attendance Calculation</h2>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <h5>Total Students : <b>@ViewBag.TotalStudent</b></h5>
+                            <hr />
+                            <h5>Total Present Students : <b>@ViewBag.TotalPresentStudent</b></h5>
+                            <hr />
+                            <h5>Total Absent Students : <b>@ViewBag.TotalAbsentStudent</b></h5>
+                            <hr />
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <h5>Total Batches : <b>@ViewBag.TotalBatch</b></h5>
+                            <hr />
+                            <h5>Total Attendance Marked Batches : <b>@ViewBag.TotalMarkedBatch</b></h5>
+                            <hr />
+                            <h5>Total Attendance Unmarked Batches : <b>@ViewBag.TotalUnmarkedBatch</b></h5>
+                            <hr />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    @*<div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Batches in Monday/Wednesday/Friday</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div id="MWFcontainer" style=""></div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Batches in Tuesday/Thursday/Saturday</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div id="TTScontainer"></div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>*@
+
+}

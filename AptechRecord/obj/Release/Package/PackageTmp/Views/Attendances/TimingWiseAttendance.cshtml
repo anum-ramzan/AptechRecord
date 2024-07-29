@@ -1,0 +1,81 @@
+﻿@model IEnumerable<AptechRecord.Models.usp_select_timing_wise_attendance_Result>
+
+@{
+    ViewBag.Title = "Timing Wise Attendance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section contentHeader{
+    <h1>
+        Attendance
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href=@Url.Action("Index", "Attendances")><i class="fa fa-list"></i>Attendance</a></li>
+        <li>Timing Wise Attendance</li>
+    </ol>
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Timing Wise Attendance</h3>
+            </div>
+            <div class="box-body">
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        <h6>@ViewBag.ErrorMessage</h6>
+                    </div>
+                }
+                else
+                {
+                    <table id="TimingWiseAttendancetable" class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Timing
+                                </th>
+                                <th>
+                                    Total Student
+                                </th>
+                                <th>
+                                    Head Count
+                                </th>
+                                <th>
+                                    Attendance
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TSSlot)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TotalStudent)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Head_Count)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Attendance)%
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.dataTables_empty').html('<b>No Attendance found yet<b>')
+    });
+</script>

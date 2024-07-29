@@ -1,0 +1,124 @@
+﻿@model AptechRecord.Models.Book
+
+@{
+    ViewBag.Title = "Edit book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section contentHeader{
+    <h1>
+        Book
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href=@Url.Action("Index", "Books")><i class="fa fa-list"></i>Semester Books</a></li>
+        <li>Edit book</li>
+    </ol>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">@ViewBag.Title</h3>
+            </div>
+            <div class="box-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.Id)
+
+                        <div class="form-group">
+                            @Html.Label("Course", "Course", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("Course", null, "Select Course Type", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Semester.CourseDetail.Cours.CourseName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Course Type", "Course Type", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10 TRCourse">
+                                @Html.DropDownList("CourseType", new List<SelectListItem>(), new { id = "CourseId", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Semester.CourseDetail.CourseDetailName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SemesterId, "SemesterId", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("SemesterId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SemesterId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BookName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.BookName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save Changes" class="btn btn-default" />
+                                @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-info" })
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#Course').change(function () {
+            $('#CourseId option').remove();
+            $.ajax({
+                type: "post",
+                url: "/Books/GeCourseDetailList",
+                data: { id: $('#Course').val() },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    var jobs = eval(data);
+                    var items = '';
+                    $('#CourseId').append("<option value='0'>Select Course type</option>");
+                    $.each(jobs, function (i, item) {
+                        $('#CourseId').append('<option value=' + item.CourseDetail1 + '>' + item.CourseDetailName + '</option>');
+                    });
+
+                }
+            });
+        });
+
+        $('#CourseId').change(function () {
+            $('#SemesterId option').remove();
+            $('#SemesterId optgroup').remove();
+            $.ajax({
+                type: "get",
+                url: "/Books/GetCourseSemester",
+                data: { id: $('#CourseId').val() },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    var jobs = eval(data);
+                    var items = '';
+                    $('#SemesterId').append("<option value='0'>Select Semester</option>");
+                    $.each(jobs, function (i, item) {
+                        $('#SemesterId').append('<option value=' + item.Id + '>' + item.SemesterName + '</option>');
+                    });
+
+                }
+            });
+        });
+    });
+</script>

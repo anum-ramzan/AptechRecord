@@ -1,0 +1,72 @@
+﻿@model IEnumerable<AptechRecord.Models.Semester>
+
+@{
+    ViewBag.Title = "Semester List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}@section contentHeader{
+    <h1>
+        Semesters
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=@Url.Action("Dashboard", "Admin")><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li>Semester</li>
+    </ol>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">@ViewBag.Title</h3>
+            </div>
+            <div class="box-body">
+                <p>
+                    @Html.ActionLink("Add New Semester", "AddSemester", null, new { @class = "btn btn-danger" })
+                </p>
+                <table id="Semestertable" class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SemesterName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SemesterSession)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CourseDetail.CourseDetailName)
+                            </th>
+                            <th>
+                                Course
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SemesterName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SemesterSession)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CourseDetail.CourseDetailName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CourseDetail.Cours.CourseAbbreviation)
+                                </td>
+                                <td>
+                                    <a href=@Url.Action("EditSemester", new { id = item.Id })><i class="fa fa-edit"></i></a>
+                                    <a href=@Url.Action("DeleteCourse", new { id = item.Id })><i class="fa fa-trash"></i></a>
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

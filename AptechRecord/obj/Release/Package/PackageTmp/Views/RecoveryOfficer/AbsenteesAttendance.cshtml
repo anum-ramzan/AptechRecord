@@ -1,0 +1,149 @@
+﻿@model List<AptechRecord.Models.usp_select_absent_student_Result>
+
+@{
+    ViewBag.Title = "Attendance";
+    Layout = "~/Views/Shared/_LayoutPageRO.cshtml";
+}
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <h6>@ViewBag.ErrorMessage</h6>
+    </div>
+}
+else
+{
+    using (Html.BeginForm("AbsenteesAttendance", "RecoveryOfficer", new { batch = ViewBag.BatchName }, FormMethod.Post))
+    {
+        <div class="box box-info">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <h3>Batch Code: @ViewBag.BatchName</h3>
+                        <p>Attendance for: @DateTime.Now.AddHours(9.00000).ToString("D")</p>
+                        <p>Total Students: @ViewBag.CountStudent</p>
+                        <p>Marking attendance on:  @DateTime.Now.AddHours(9.00000)</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div id="StudentAttendanceTable" class="table">
+                            <div class="div-header">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Student Id
+                                    </div>
+                                    <div class="col-sm-3">
+                                        Student Name
+                                    </div>
+                                    <div class="col-sm-3">
+                                        Attendance Status
+                                        @*<input type="checkbox" id="AllCheck" name="AllCheck" />*@
+                                    </div>
+                                    <div class="col-sm-4">Notes</div>
+                                </div>
+                            </div>
+                            <div class="div-body">
+                                @if (Model != null && Model.Count > 0)
+                                {
+                                    int count = 0;
+
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                @Html.TextBoxFor(modelItem => modelItem[count].Studentid, new { @class = "", style = "border: none;", @readonly = "readonly" })
+                                            </div>
+                                            <div class="col-sm-3">
+                                                @Html.DisplayFor(modelItem => item.StudentName)
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>
+                                                    @Html.RadioButtonFor(modelItem => modelItem[count].AttendanceStatus, "Present", new { @class = "" })
+                                                    Present
+                                                </label>
+                                                <label>
+                                                    @Html.RadioButtonFor(modelItem => modelItem[count].AttendanceStatus, "Absent", new { @class = "" })
+                                                    Absent
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                @{ var a = "Notes" + count;  }
+                                                @Html.TextAreaFor(modelItem => modelItem[count].Notes, new { @class = "form-control", id = @a })
+                                            </div>
+                                        </div><hr class="body-hr" />
+                                                 count++;
+                                    }
+                                }
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <input type="submit" id="MarkAttendance" name="MarkAttendance" value="Mark Attendance" class="btn btn-block btn-success" />
+                                    @Html.ActionLink("Cancel", "Dashboard", "RecoveryOfficer", null, new { @class = "btn btn-block btn-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+<div class="modal fade" id="modalDefault" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Absent Students Attendance</h3>
+            </div>
+            <div class="modal-body attendance-model-body">
+                <p id="message"></p>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" id="CloseModal" class="btn btn-default" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@if (ViewBag.Message != null)
+{
+    if (ViewBag.Message == 1)
+    {
+        <script type="text/javascript">
+            var ts = '@(ViewBag.TS)';
+            var tp = '@(ViewBag.TP)';
+            var ta = '@(ViewBag.TA)';
+            $("#modalDefault").modal({
+                backdrop: false
+            });
+            $(".modal-header").css("background-color", "#0aae63");
+            var batch = $('div.row div h3').text();
+            $("#message").html("<img src=\"/images/happy.png\"/><h3>Attendance successfully marked </h3>" +
+                "<h5>Summary:</h5>" +
+                "<ul><li>Total Students : " + ts + "</li><li>Total Present : " + tp + "</li><li>Total Absent : " + ta + "</li></ul>"
+                );
+
+            $('#CloseModal').click(function () {
+                window.location.href = "/RecoveryOfficer/Task?task=absentees"
+            });
+
+        </script>
+    }
+    else if (ViewBag.Message == -1)
+    {
+        <script type="text/javascript">
+            $("#modalDefault").modal({
+                backdrop: false
+            });
+            $(".modal-header").css("background-color", "#0aae63");
+            var batch = $('div.row div h3').text();
+            $("#message").html("<img src=\"/images/sad.png\"/> <h3>Couldn't update attendance</h3>");
+
+            $('#CloseModal').click(function () {
+                window.location.href = "/RecoveryOfficer/Task?task=absentees"
+            });
+        </script>
+    }
+}
